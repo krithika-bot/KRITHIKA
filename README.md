@@ -87,10 +87,18 @@ I am building a transition from Computer Science / AI/ML toward neuroscience res
 
 > Build carefully. Measure honestly. Learn across disciplines. Turn computational ideas into experimentally testable research.
 
+## Academic & professional links
+
+- **GitHub:** https://github.com/krithika-bot
+- **LinkedIn:** [Add your LinkedIn profile URL]
+- **Email:** [Add your professional/academic email]
+- **Google Scholar:** [Add when available]
+- **ORCID:** [Add when available]
+- **ResearchGate:** [Optional — add when available]
+- **Personal research portfolio:** [Add portfolio URL when available]
+
+> Keep only links that are active and professional. Do not publish a personal phone number or other sensitive information on the public GitHub profile unless you specifically want it public.
+
 ## Current status
 
 This is a research-oriented student portfolio. Concepts, prototypes, experiments and manuscript drafts are explicitly distinguished; unpublished ideas are not presented as established results.
-
-## Contact
-
-- GitHub: https://github.com/krithika-bot

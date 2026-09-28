@@ -1,12 +1,10 @@
 # Krithika Mala
 
-### AI/ML Student | Computational Neuroscience | Neurotechnology | R&D
+### B.Sc. Computer Science (AI/ML) | Computational Neuroscience | Neurotechnology | Research R&D
 
-I am a final-year B.Sc. Computer Science student specialising in Artificial Intelligence and Machine Learning at VELS Institute of Science, Technology & Advanced Studies, India.
+I am a B.Sc. Computer Science student specializing in Artificial Intelligence and Machine Learning, developing a research direction at the intersection of computation, biological signals and neuroscience.
 
-My current research interest is at the intersection of **Artificial Intelligence, neural signals, computational neuroscience and human-centred neurotechnology**.
-
-I am particularly interested in using computational methods to understand biological signals and human behaviour, and in building research prototypes that connect AI with neuroscience and assistive technologies.
+My current goal is to build rigorous computational skills for neuroscience research: Python, machine learning, data analysis, signal processing and scientific computing, while developing foundational knowledge of EEG, EMG and multimodal physiological data.
 
 ## Research interests
 
@@ -14,14 +12,14 @@ I am particularly interested in using computational methods to understand biolog
 - Neural and physiological signal analysis
 - Machine learning for neuroscience
 - EEG / EMG and multimodal biosignals
-- Brain dynamics and neural-state modelling
-- Neurotechnology and non-invasive sensing
+- Brain dynamics and human-state modelling
+- Non-invasive neurotechnology
 - Human-centred AI and assistive technology
-- Data analysis, statistics and scientific computing
+- Scientific computing, statistics and reproducible research
 
-## Technical background
+## Technical foundation
 
-**Programming & AI**
+**Computer Science & AI/ML**
 - Python
 - Machine Learning
 - Artificial Intelligence
@@ -30,51 +28,50 @@ I am particularly interested in using computational methods to understand biolog
 - Object-Oriented Programming
 - Data Structures & Algorithms
 
-**Research / engineering interests**
+**Research / engineering areas being developed**
 - Signal processing
-- Multimodal sensor data
-- Neural-signal analysis
+- Time-series analysis
+- Physiological sensor data
 - Wearable sensing
-- Experimental design
 - Research prototyping
+- Experimental design
 
 ## Selected research projects
 
 ### NEURO STORE — Wearable Neuro-Muscular Monitoring Prototype
-A non-invasive research prototype exploring longitudinal monitoring of neuro-muscular activity and movement using wearable sensing, EMG/IMU data, embedded systems and personal-baseline analytics.
+A non-invasive research prototype exploring longitudinal monitoring of neuromuscular activity and movement using wearable sensing, EMG/IMU data and personal-baseline analysis.
 
-**Focus:** EMG • IMU • signal analysis • wearable sensing • BLE • human-centred systems
+**Focus:** EMG • IMU • signal processing • wearable sensing • longitudinal data
 
-> Research prototype; not a diagnostic or treatment device.
+> Prototype / R&D stage. Not a diagnostic or treatment device.
 
 ### Neuro-Behavior Network (NBN)
-A longer-term R&D concept focused on computational modelling of human state from multimodal behavioural and physiological signals, with an emphasis on human-state-aware safety and decision-support systems.
+A conceptual R&D framework for computational modelling of human state from multimodal physiological and behavioural signals, with emphasis on temporal modelling, individual baselines, uncertainty and responsible decision support.
 
-**Focus:** AI • multimodal signals • human-state modelling • computational neuroscience • safety-oriented systems
+**Focus:** AI/ML • multimodal signals • human-state modelling • computational neuroscience
 
-## Academic background
+> Conceptual R&D stage. No experimental validation is claimed yet.
 
-**B.Sc. Computer Science — Artificial Intelligence & Machine Learning**  
-VELS Institute of Science, Technology & Advanced Studies, India  
-Expected completion: March 2027
+## Research documentation
 
-Relevant academic areas include AI, Python, mathematics, statistics/data analysis, data structures, R and computing.
+- [Research Portfolio](research/README.md)
+- [Research Status](research/RESEARCH_STATUS.md)
+- [NEURO STORE](projects/NEURO_STORE.md)
+- [NBN](projects/NBN.md)
+- [NBN Research Manuscript Draft v1](research/NBN_Research_Manuscript_Draft_v1.md)
 
-## Current research direction
+## Academic direction
 
-I am developing my foundation from AI/ML toward neuroscience research, with a particular interest in computational approaches to neural signals, brain dynamics and non-invasive neurotechnology.
-
-I am currently preparing for postgraduate research in neuroscience / neurotechnology and looking for opportunities to contribute to interdisciplinary research combining computation, engineering and neuroscience.
+I am building a transition from Computer Science / AI/ML toward neuroscience research, with particular interest in computational analysis of neural signals, brain dynamics and non-invasive neurotechnology.
 
 ## Research philosophy
 
 > Build carefully. Measure honestly. Learn across disciplines. Turn computational ideas into experimentally testable research.
 
+## Current status
+
+This is a research-oriented student portfolio. Concepts, prototypes, experiments and manuscript drafts are explicitly distinguished; unpublished ideas are not presented as established results.
+
 ## Contact
 
-- Email: krithikamala23@gmail.com
 - GitHub: https://github.com/krithika-bot
-
----
-
-*This portfolio is a research-oriented student profile and is being continuously updated as projects, code and experimental results are documented.*

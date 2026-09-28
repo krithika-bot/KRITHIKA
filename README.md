@@ -52,6 +52,13 @@ A conceptual R&D framework for computational modelling of human state from multi
 
 > Conceptual R&D stage. No experimental validation is claimed yet.
 
+### EEG Analysis — Public Motor-Task EEG
+A reproducible computational neuroscience project using the open-access PhysioNet EEG Motor Movement/Imagery Dataset through MNE-Python. The first implementation uses documented motor-execution runs to build a preprocessing → spectral-feature → subject-grouped baseline ML pipeline.
+
+**Focus:** EEG • Python • MNE-Python • signal processing • spectral features • machine learning • reproducibility
+
+> Research project in development. Numerical results are only reported after the pipeline has actually been executed and checked.
+
 ## Reproducible computational demonstrations
 
 These small projects are deliberately reproducible and use synthetic data. They demonstrate the computational foundation behind my transition from AI/ML toward neuroscience research.
@@ -59,8 +66,9 @@ These small projects are deliberately reproducible and use synthetic data. They 
 - [Signal Processing Basics](projects/signal-processing-basics/README.md) — filtering and feature extraction from a synthetic time-series.
 - [EMG Feature Demonstration](projects/emg-feature-demo/README.md) — common time-domain features from a synthetic EMG-like signal.
 - [Time-Series ML Demonstration](projects/time-series-ml-demo/README.md) — feature engineering, classification and evaluation on synthetic data.
+- [EEG Analysis](projects/eeg-analysis/README.md) — real public EEG dataset workflow with subject-grouped baseline evaluation.
 
-> These demonstrations are educational software projects, not human-subject experiments and not clinical models.
+> Synthetic demonstrations are educational software projects, not human-subject experiments and not clinical models.
 
 ## Research documentation
 
@@ -69,6 +77,7 @@ These small projects are deliberately reproducible and use synthetic data. They 
 - [NEURO STORE](projects/NEURO_STORE.md)
 - [NBN](projects/NBN.md)
 - [NBN Research Manuscript Draft v1](research/NBN_Research_Manuscript_Draft_v1.md)
+- [EEG Analysis Research Report](projects/eeg-analysis/research_report.md)
 
 ## Academic direction
 
@@ -85,11 +94,3 @@ This is a research-oriented student portfolio. Concepts, prototypes, experiments
 ## Contact
 
 - GitHub: https://github.com/krithika-bot
-
-## Reproducible computational demonstrations
-
-- Signal processing fundamentals — synthetic time-series filtering and feature extraction.
-- EMG feature extraction — synthetic EMG-like signal and time-domain features.
-- Time-series ML — synthetic feature classification with a reproducible train/test pipeline.
-
-All three demonstrations are explicitly educational and use synthetic data.

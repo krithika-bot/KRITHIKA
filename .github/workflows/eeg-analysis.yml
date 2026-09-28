@@ -1,0 +1,21 @@
+name: EEG Analysis
+
+on:
+  push:
+    paths:
+      - 'projects/eeg-analysis/**'
+      - '.github/workflows/eeg-analysis.yml'
+  workflow_dispatch:
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install -r projects/eeg-analysis/requirements.txt
+      - name: Run EEG pipeline
+        run: python projects/eeg-analysis/src/eeg_pipeline.py

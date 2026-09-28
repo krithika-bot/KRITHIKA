@@ -52,6 +52,16 @@ A conceptual R&D framework for computational modelling of human state from multi
 
 > Conceptual R&D stage. No experimental validation is claimed yet.
 
+## Reproducible computational demonstrations
+
+These small projects are deliberately reproducible and use synthetic data. They demonstrate the computational foundation behind my transition from AI/ML toward neuroscience research.
+
+- [Signal Processing Basics](projects/signal-processing-basics/README.md) — filtering and feature extraction from a synthetic time-series.
+- [EMG Feature Demonstration](projects/emg-feature-demo/README.md) — common time-domain features from a synthetic EMG-like signal.
+- [Time-Series ML Demonstration](projects/time-series-ml-demo/README.md) — feature engineering, classification and evaluation on synthetic data.
+
+> These demonstrations are educational software projects, not human-subject experiments and not clinical models.
+
 ## Research documentation
 
 - [Research Portfolio](research/README.md)
@@ -75,3 +85,11 @@ This is a research-oriented student portfolio. Concepts, prototypes, experiments
 ## Contact
 
 - GitHub: https://github.com/krithika-bot
+
+## Reproducible computational demonstrations
+
+- Signal processing fundamentals — synthetic time-series filtering and feature extraction.
+- EMG feature extraction — synthetic EMG-like signal and time-domain features.
+- Time-series ML — synthetic feature classification with a reproducible train/test pipeline.
+
+All three demonstrations are explicitly educational and use synthetic data.

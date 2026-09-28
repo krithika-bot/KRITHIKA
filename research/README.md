@@ -13,5 +13,6 @@ This directory contains research-oriented documentation for projects at differen
 
 - [NEURO STORE](../projects/NEURO_STORE.md) — wearable EMG/IMU research prototype.
 - [NBN](../projects/NBN.md) — Neuro-Behavior Network conceptual R&D framework.
+- [NBN manuscript draft](NBN_Research_Manuscript_Draft_v1.md) — conceptual research manuscript.
 
 The portfolio deliberately separates demonstrated work from proposed research and does not present unpublished results as established findings.

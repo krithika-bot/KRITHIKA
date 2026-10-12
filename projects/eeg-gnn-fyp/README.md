@@ -2,9 +2,10 @@
 
 Final-year project · Krithika K · B.Sc. Computer Science (AI & ML), VISTAS, Chennai
 
-> **Status: implementation and software checks complete; real-data experiments pending.** No empirical result is
-> claimed until it has been produced by the commands below and committed under `results/`. `results/summary.md` is
-> generated from raw predictions by `scripts/make_summary.py`; nothing is typed in by hand. See
+> **Status: implementation, software checks, and a 20-participant real-data pilot complete.** The pilot is exploratory,
+> not the full EEGMMIDB cohort study. Its generated results are committed under `results/real_data_pilot/`; see the
+> [real-data pilot report](docs/REAL_DATA_PILOT_REPORT.md) and [evidence index](results/real_data_pilot/README.md).
+> `summary.md` is generated from raw predictions by `scripts/make_summary.py`; nothing is typed in by hand. See
 > [`docs/VALIDATION.md`](docs/VALIDATION.md) for the current validation record and
 > [`docs/PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md) for the full project explanation, dataset provenance,
 > code map, tooling, evaluation plan, evidence boundaries, and reproduction instructions.
@@ -86,8 +87,12 @@ python scripts/make_summary.py --results results
 `python scripts/run_deep.py --synthetic --smoke` runs a 1–2 minute wiring check on planted-effect synthetic data.
 Synthetic output is **only** for testing the code and is stamped on every figure; never report it.
 
-The committed validation record covers the test suite and synthetic smoke path only. The PhysioNet EEGMMIDB
-experiment has not yet completed, so this repository currently contains no real-data performance result.
+The real-data pilot used 20 participants, five subject-wise folds, and three seeds. CSP + LDA reached 55.8% mean
+participant accuracy (95% bootstrap CI 52.1–59.6%); the distance-graph GCN reached 53.7%. The distance graph did
+not significantly outperform the identity control after Holm correction. These pilot results do not establish
+full-cohort performance or generalization. The report, raw held-out predictions, checksums, run metadata, histories,
+summary tables, and figures are included under `results/real_data_pilot/`; raw EDF recordings and the derived cache
+are not redistributed.
 
 ## Repository layout
 

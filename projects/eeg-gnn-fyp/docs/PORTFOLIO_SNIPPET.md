@@ -1,8 +1,8 @@
 # EEG Graph Neural Network — portfolio text
 
-**Status:** Software implementation and validation complete; real-data experiments pending.
+**Status:** Software implementation complete; exploratory real-data pilot completed on 20 PhysioNet participants.
 
-I implemented a reproducible EEG motor-imagery pipeline that compares classical baselines, EEGNet, and electrode-graph neural networks under participant-wise evaluation. The code passes 13 software tests and completes a synthetic smoke check. These checks validate software behavior only; the PhysioNet real-data experiment has not yet completed, so no EEG performance result is claimed.
+I implemented and ran a reproducible EEG motor-imagery pipeline comparing classical baselines, EEGNet, and electrode-graph neural networks under participant-wise evaluation. On a checksum-verified 20-participant PhysioNet pilot, CSP + LDA reached 55.8% mean participant accuracy (95% bootstrap CI 52.1–59.6%); the distance-graph GCN reached 53.7%. The graph did not significantly outperform the identity control after correction for multiple comparisons. The report includes raw held-out predictions, dataset checksums, run metadata, training histories, summary tables, figures, and limitations. The result is exploratory and does not establish generalization to the full cohort.
 
 **Evidence:** [Full project documentation](PROJECT_DOCUMENTATION.md) · [Project source](../README.md) · [Software validation record](VALIDATION.md) · [Colab notebook](../notebooks/run_on_colab.ipynb)
 

@@ -3,9 +3,9 @@
 **Project:** Electrode-graph neural networks for cross-subject EEG motor-imagery decoding  
 **Author:** Krithika K · B.Sc. Computer Science (AI & ML), VISTAS, Chennai  
 **Document updated:** 12 October 2026  
-**Project stage:** Software implementation and software validation complete; real-data study pending.
+**Project stage:** Implementation and software validation complete; 20-participant real-data pilot completed. The pilot report and evidence package are linked below.
 
-> **Evidence boundary.** The code and its software checks have been run. The real PhysioNet EEG files were not successfully downloaded in the validation environment, so this project has no real-data model scores or scientific conclusion yet. Synthetic data are used only to check that the pipeline runs.
+> **Evidence boundary.** The project now includes real EEG predictions from a 20-participant, three-seed pilot. It is an exploratory subset, not a full-cohort study. Results do not show a statistically significant graph advantage after multiple-comparison correction. Synthetic data remain software checks only. See [REAL_DATA_PILOT_REPORT.md](REAL_DATA_PILOT_REPORT.md) and [the evidence package](../results/real_data_pilot/README.md).
 
 ## 1. Project summary
 
@@ -42,7 +42,7 @@ A null or negative result is a valid outcome. A graph built from electrode coord
 
 **Technical scope:** research-software prototype. It includes data acquisition code, preprocessing, classical and neural baselines, graph ablations, subject-level evaluation, tests, and report generation.
 
-**Current maturity:** code paths have been tested, including a synthetic end-to-end smoke run and an automated GitHub Actions run. The planned real-data evaluation has not completed. The project is therefore not yet an empirical comparison of EEG model performance.
+**Current maturity:** software checks and the real-data pilot are complete. The empirical result is a bounded comparison on 20 participants; expanding the cohort and independent replication remain future work.
 
 ## 4. Dataset and data provenance
 
@@ -63,7 +63,7 @@ The configured data window is nominally 0–4 seconds after the event, represent
 
 The source dataset has its own attribution terms. Cite PhysioNet and follow the dataset's [ODC Attribution License 1.0](https://physionet.org/content/eegmmidb/1.0.0/); do not treat the project repository's MIT code licence as a licence for the dataset.
 
-**Actual data status:** no usable PhysioNet EDF file was processed in the recorded validation run. The attempted download was interrupted. There are no real-data predictions, subject counts, performance estimates, or result figures to report.
+**Actual data status:** 60 EDF recordings for participants S001–S020 were loaded. All 60 files passed SHA-256 validation against the MNE-Python checksum registry. The resulting dataset contained 900 trials, 64 EEG channels and 640 samples per trial at 160 Hz. The audit and file manifest are in results/real_data_pilot/provenance/.
 
 ## 5. End-to-end workflow
 
@@ -138,7 +138,7 @@ Data-derived graphs use training-fold data. Per-trial normalization uses only th
 | GCN temporal filters / kernel | 16 / 40 samples |
 | GCN hidden width / graph layers | 32 / 2 |
 
-Planned measures are mean per-subject accuracy with a participant-level bootstrap 95% interval, trial accuracy, balanced accuracy, macro-F1, AUC, and confusion matrices. Paired model comparisons use Wilcoxon signed-rank tests on per-subject accuracy with Holm correction across the comparisons in the summary script. These metrics and tests are implemented; no real-data values have been generated.
+Measures are mean per-subject accuracy with a participant-level bootstrap 95% interval, trial accuracy, balanced accuracy, macro-F1, AUC, and confusion matrices. Paired comparisons use Wilcoxon signed-rank tests on per-subject accuracy with Holm correction. The pilot's primary results were CSP + LDA 55.8% (95% CI 52.1–59.6%), GCN identity 55.6% (53.4–57.7%), and GCN distance 53.7% (52.1–55.3%). No reported comparison remained significant after Holm correction; the distance graph did not demonstrate an advantage over the identity control.
 
 ## 8. Tools and software
 
@@ -192,15 +192,19 @@ The full source is in the [project folder on GitHub](https://github.com/krithika
 | Synthetic classical pipeline and label-shuffle control | Completed; shuffled-training-label results behaved as a chance-level canary on generated data | Baseline and leakage-canary code paths run | That real EEG labels contain a decodable effect |
 | Synthetic report generation | Completed with synthetic warning in the report | The report and figure pipeline can consume predictions and label test data as synthetic | Scientific significance or real physiology |
 | GitHub Actions | Passing software-validation workflow on the uploaded project; workflow reruns for project changes | Reproducible automated checks in the repository | Reproduction of the real-data experiment |
-| Input hashes | ZIP SHA-256: d9d800ee3326eed3883fc9dec73ae51c3de114cf70e1217d9495fb845dcfc027; supplied notebook SHA-256: 565911b425043c5fe3dfd0079a02ebb373e512e8958f378ae45c437021d5191e | Identifies the supplied files used to prepare this project package | Integrity or completeness of a future PhysioNet result |
+| Input hashes | ZIP SHA-256: d9d800ee3326eed3883fc9dec73ae51c3de114cf70e1217d9495fb845dcfc027; supplied notebook SHA-256: 565911b425043c5fe3dfd0079a02ebb373e512e8958f378ae45c437021d5191e | Identifies the supplied files used to prepare this project package | Model-performance claims or scientific validity of the real-data pilot |
+| PhysioNet provenance | 60/60 EDF files checksum-verified; 20 participants and 900 trials loaded; audit, manifest, and cache digest recorded | Dataset source integrity and the actual analyzed cohort | Generalization beyond the selected participants |
+| Real-data cross-subject pilot | Five subject-wise folds × three seeds for 20 participants; predictions, run settings, histories, tables, and figures committed | Reproducible exploratory estimates on this real dataset subset | Full-cohort performance or clinical value |
+| Label-shuffle canary | Training-label-shuffled baselines near chance: 49.1% and 51.0% | Sanity check that the label-dependent pipeline falls to chance-like accuracy under shuffled training labels | Formal proof that every possible leakage path is absent |
+| Graph comparison | Distance GCN 53.7%; identity GCN 55.6%; Holm-adjusted paired p = 0.300 | In this pilot, the distance graph did not show an advantage over the identity control | A universal conclusion that graph models cannot help EEG decoding |
 
 The [GitHub Actions history](https://github.com/krithika-bot/KRITHIKA/actions/workflows/eeg-gnn-project.yml) is the public record for automated software checks. The detailed local validation record is [docs/VALIDATION.md](VALIDATION.md).
 
 ### Evidence status
 
-**Proven so far:** the software tests pass; the synthetic pipeline, label-shuffle control, and report generator run; the uploaded project has an automated CI workflow.
+**Supported by the recorded evidence:** the software checks pass; the synthetic pipeline, label-shuffle control, and report generator run; the real-data pilot processed 20 participants with checksum-tracked files and saved out-of-fold predictions; the uploaded project has an automated CI workflow.
 
-**Not proven yet:** real-data model performance, that any graph improves decoding, that the hypotheses are supported, statistical significance on EEG, or physiological ERD on the PhysioNet recordings. The real dataset run must finish before any of those claims are made.
+**Not established:** that a graph improves decoding, that the findings generalize to the remaining EEGMMIDB participants or an independent dataset, or that this system has clinical or real-time BCI utility. The pilot comparisons were not significant after Holm correction.
 
 ## 11. Reproduction
 
@@ -210,15 +214,15 @@ From the project directory, install the declared dependencies and run the softwa
     python tests/run_tests.py
     python scripts/run_deep.py --synthetic --smoke --out /tmp/eeg-gnn-smoke
 
-To run the planned quick real-data study (downloads up to 20 eligible participants):
+To reproduce the completed 20-participant pilot (downloads the subset if it is not already cached):
 
     python scripts/make_data_figures.py --n-subjects 20
-    python scripts/run_baselines.py --n-subjects 20 --seeds 0 --out results/classical
-    python scripts/run_baselines.py --n-subjects 20 --seeds 0 --out results/classical --permute-train-labels
-    python scripts/run_deep.py --n-subjects 20 --seeds 0 --out results/deep --resume
-    python scripts/make_summary.py --results results
+    python scripts/run_baselines.py --n-subjects 20 --seeds 0 1 2 --out results/real_data_pilot/classical
+    python scripts/run_baselines.py --n-subjects 20 --seeds 0 1 2 --out results/real_data_pilot/classical_permuted --permute-train-labels
+    python scripts/run_deep.py --n-subjects 20 --seeds 0 1 2 --out results/real_data_pilot/deep --resume
+    python scripts/make_summary.py --results results/real_data_pilot
 
-The full configuration uses all eligible participants and three seeds. It can require a long download and substantial compute; the Colab notebook includes a resumable route. Do not run the real-data commands under a synthetic-results label.
+The full configuration requests all eligible participants and uses three seeds. It requires a much larger download and substantial compute; the Colab notebook includes a resumable route. The completed 20-person pilot is not the full-cohort study. Do not run real-data commands under a synthetic-results label.
 
 The scripts create evidence artifacts such as participant and skipped-subject metadata in run_info.json, raw held-out predictions, training histories, summary.csv, comparisons.csv, summary.md, and figures. Review those files before reporting results. Do not commit the raw EDF dataset; keep the project code, configuration, predictions, and metadata sufficient to document the analysis, subject to the dataset's terms and the final project policy.
 
@@ -231,13 +235,13 @@ The scripts create evidence artifacts such as participant and skipped-subject me
 - Synthetic signals contain a planted effect; they are deliberately suitable for checking software and cannot stand in for recorded EEG.
 - This work is not clinically validated and must not be used for diagnosis or treatment.
 
-Before calling the empirical study complete:
+The 20-participant pilot is complete. The next research stage should:
 
-1. Finish the PhysioNet download and confirm the actual loaded participant/trial counts and any skips.
-2. Run the configured baselines, permutation canary, graph models, and summary on real data.
-3. Check saved run metadata, raw predictions, figures, and reproducibility from a clean environment.
-4. Report the actual subject-wise estimates, uncertainty, comparisons, limitations, and any failed or skipped runs.
-5. Update the portfolio and validation record only after those artifacts have been reviewed.
+1. Extend the cohort beyond the first 20 participants, recording every skipped ID and reason.
+2. Pre-specify any additional model selection and, if feasible, use nested validation or a separate tuning cohort.
+3. Replicate the analysis on an independent dataset before making broader claims.
+4. Preserve the raw predictions, run settings, provenance, uncertainty estimates, and negative results.
+5. Keep clinical and real-time BCI claims out of scope without separate validation.
 
 ## 13. References
 
@@ -251,4 +255,4 @@ Before calling the empirical study complete:
 
 ## Portfolio-ready description
 
-Implemented a subject-wise EEG motor-imagery research pipeline comparing classical baselines, EEGNet, and electrode-graph models, with tests for data handling, graph controls, and subject separation. Software checks pass; the planned PhysioNet real-data experiment is still pending, so no EEG performance result is claimed.
+Implemented and evaluated a subject-wise EEG motor-imagery pipeline on a checksum-verified 20-participant PhysioNet pilot. CSP + LDA reached 55.8% mean participant accuracy; the distance-graph GCN reached 53.7% and did not significantly outperform the identity control after correction. Full-cohort validation remains future work.

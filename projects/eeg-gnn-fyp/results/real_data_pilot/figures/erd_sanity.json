@@ -1,0 +1,7 @@
+{
+  "n_subjects": 20,
+  "frac_subjects_expected_direction": 0.8,
+  "mean_li_left": -0.12520198113052175,
+  "mean_li_right": -0.0810917228969629,
+  "wilcoxon_p": 0.005580902099609375
+}

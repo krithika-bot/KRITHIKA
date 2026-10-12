@@ -1,0 +1,288 @@
+{
+  "created_at_local": "2026-10-12T15:41:51+05:30",
+  "dataset": "PhysioNet EEG Motor Movement/Imagery Dataset (EEGMMIDB) v1.0.0",
+  "dataset_doi": "10.13026/C28G6P",
+  "dataset_license": "Open Data Commons Attribution License 1.0",
+  "download_source": "Official PhysioNet public S3 mirror; all EDF files checked against MNE-Python bundled SHA-256 registry before loading.",
+  "included_candidate_ids": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "excluded_by_protocol": [
+    88,
+    89,
+    92,
+    100,
+    104
+  ],
+  "loaded_subjects": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20
+  ],
+  "n_subjects": 20,
+  "n_edf_files_checksum_verified": 60,
+  "n_trials": 900,
+  "n_channels": 64,
+  "n_samples_per_trial": 640,
+  "sampling_rate_hz": 160.0,
+  "class_counts_0_left_T1_1_right_T2": [
+    455,
+    445
+  ],
+  "preprocessing": {
+    "runs": [
+      4,
+      8,
+      12
+    ],
+    "bandpass_hz": [
+      8.0,
+      30.0
+    ],
+    "epoch_start_seconds": 0.0,
+    "epoch_samples": 640,
+    "dc_removal": "per trial",
+    "scaling": "per-trial RMS normalization during model input"
+  },
+  "channel_names": [
+    "FC5",
+    "FC3",
+    "FC1",
+    "FCz",
+    "FC2",
+    "FC4",
+    "FC6",
+    "C5",
+    "C3",
+    "C1",
+    "Cz",
+    "C2",
+    "C4",
+    "C6",
+    "CP5",
+    "CP3",
+    "CP1",
+    "CPz",
+    "CP2",
+    "CP4",
+    "CP6",
+    "Fp1",
+    "Fpz",
+    "Fp2",
+    "AF7",
+    "AF3",
+    "AFz",
+    "AF4",
+    "AF8",
+    "F7",
+    "F5",
+    "F3",
+    "F1",
+    "Fz",
+    "F2",
+    "F4",
+    "F6",
+    "F8",
+    "FT7",
+    "FT8",
+    "T7",
+    "T8",
+    "T9",
+    "T10",
+    "TP7",
+    "TP8",
+    "P7",
+    "P5",
+    "P3",
+    "P1",
+    "Pz",
+    "P2",
+    "P4",
+    "P6",
+    "P8",
+    "PO7",
+    "PO3",
+    "POz",
+    "PO4",
+    "PO8",
+    "O1",
+    "Oz",
+    "O2",
+    "Iz"
+  ],
+  "skipped_subjects": [],
+  "subject_trial_counts": [
+    {
+      "participant_id": 1,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    },
+    {
+      "participant_id": 2,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    },
+    {
+      "participant_id": 3,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    },
+    {
+      "participant_id": 4,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    },
+    {
+      "participant_id": 5,
+      "trials": 45,
+      "left_class_T1": 21,
+      "right_class_T2": 24
+    },
+    {
+      "participant_id": 6,
+      "trials": 45,
+      "left_class_T1": 24,
+      "right_class_T2": 21
+    },
+    {
+      "participant_id": 7,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    },
+    {
+      "participant_id": 8,
+      "trials": 45,
+      "left_class_T1": 22,
+      "right_class_T2": 23
+    },
+    {
+      "participant_id": 9,
+      "trials": 45,
+      "left_class_T1": 24,
+      "right_class_T2": 21
+    },
+    {
+      "participant_id": 10,
+      "trials": 45,
+      "left_class_T1": 24,
+      "right_class_T2": 21
+    },
+    {
+      "participant_id": 11,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    },
+    {
+      "participant_id": 12,
+      "trials": 45,
+      "left_class_T1": 21,
+      "right_class_T2": 24
+    },
+    {
+      "participant_id": 13,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    },
+    {
+      "participant_id": 14,
+      "trials": 45,
+      "left_class_T1": 22,
+      "right_class_T2": 23
+    },
+    {
+      "participant_id": 15,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    },
+    {
+      "participant_id": 16,
+      "trials": 45,
+      "left_class_T1": 22,
+      "right_class_T2": 23
+    },
+    {
+      "participant_id": 17,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    },
+    {
+      "participant_id": 18,
+      "trials": 45,
+      "left_class_T1": 22,
+      "right_class_T2": 23
+    },
+    {
+      "participant_id": 19,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    },
+    {
+      "participant_id": 20,
+      "trials": 45,
+      "left_class_T1": 23,
+      "right_class_T2": 22
+    }
+  ],
+  "edf_manifest": "edf_manifest.csv",
+  "edf_manifest_sha256": "4d4e4fb5bd4b99d38012316b305d2af3affbfdbf9fbf2550d1b3dca703fc522a",
+  "preprocessed_cache_bytes": 137027192,
+  "preprocessed_cache_sha256": "d7c18e5766bf9575c4392b78d4e0d8752d92d5897d345d025b40a3fd18b9fb31",
+  "software_versions": {
+    "python": "3.12.14",
+    "mne": "1.13.2",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "pandas": "3.0.6",
+    "scikit_learn": "1.9.1",
+    "torch": "2.14.1",
+    "matplotlib": "3.11.2"
+  },
+  "device": "CPU; torch.cuda.is_available()=False",
+  "source_commit": "34e42589aa4c0e1c540f9b4e631dc2ecf06265c5"
+}

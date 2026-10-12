@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the project and the PhysioNet EEGMMIDB dataset. Do not cite synthetic smoke-test output as a research finding."
+title: "Electrode-graph neural networks for cross-subject EEG motor-imagery decoding"
+authors:
+  - family-names: K
+    given-names: Krithika
+version: 0.1.0
+date-released: 2026-10-12
+license: MIT
+repository-code: "https://github.com/krithika-bot/KRITHIKA/tree/main/projects/eeg-gnn-fyp"
+keywords:
+  - EEG
+  - motor imagery
+  - graph neural networks
+  - cross-subject evaluation
+  - reproducible research

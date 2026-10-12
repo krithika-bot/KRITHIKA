@@ -1,0 +1,47 @@
+# Default configuration. Every number that affects a result lives here.
+data:
+  dataset: physionet_eegmmidb
+  runs: [4, 8, 12]            # left- vs right-fist MOTOR IMAGERY (T1 = left, T2 = right)
+  n_subjects: 109             # use 20 for a quick first run
+  # Subjects commonly excluded in the literature because of irregular annotations/timing.
+  # The loader ALSO validates sampling rate and trial count and logs any subject it skips.
+  exclude_subjects: [88, 89, 92, 100, 104]
+  raw_dir: data/raw           # MNE downloads EDF files here
+  cache_dir: data/cache       # preprocessed epochs are cached here
+  sfreq: 160
+  l_freq: 8.0                 # mu/beta band-pass
+  h_freq: 30.0
+  tmin: 0.0
+  tmax: 4.0                   # trial window (s) -> 640 samples at 160 Hz
+  min_trials: 30
+
+eval:
+  n_folds: 5                  # SUBJECT-wise folds: test subjects are never seen in training
+  seeds: [0, 1, 2]
+  val_subject_frac: 0.15      # inner validation subjects (early stopping), taken from training subjects
+
+graph:
+  k_neighbors: 6
+  sigma: null                 # null -> median pairwise electrode distance
+  kinds: [identity, uniform, random, distance, corr]   # GCN ablation: which adjacency matrices to compare
+
+train:
+  epochs: 40
+  batch_size: 64
+  lr: 0.001
+  weight_decay: 0.001
+  patience: 10
+  dropout: 0.5
+
+model:
+  eegnet: {f1: 8, d: 2, f2: 16, kernel: 80}
+  gcn: {n_filters: 16, kernel: 40, hidden: 32, n_layers: 2}
+
+# Used ONLY with --synthetic (pipeline tests). Never report synthetic numbers as results.
+synthetic:
+  n_subjects: 20
+  trials_per_subject: 40
+  n_channels: 64
+  n_times: 640
+  sfreq: 160.0
+  seed: 0

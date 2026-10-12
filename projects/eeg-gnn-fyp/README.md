@@ -2,9 +2,12 @@
 
 Final-year project · Krithika K · B.Sc. Computer Science (AI & ML), VISTAS, Chennai
 
-> **Status: implementation, software checks, and a 20-participant real-data pilot complete.** The pilot is exploratory,
-> not the full EEGMMIDB cohort study. Its generated results are committed under `results/real_data_pilot/`; see the
-> [real-data pilot report](docs/REAL_DATA_PILOT_REPORT.md) and [evidence index](results/real_data_pilot/README.md).
+> **Status: implementation, software checks, and the full eligible-cohort real-data experiment complete.** The
+> analysis covers 104 PhysioNet participants, five subject-wise folds, and three seeds. EEGNet reached 70.1% mean
+> participant accuracy (95% participant-bootstrap CI 67.9–72.4%); the distance-graph GCN reached 56.9%, 1.2 points
+> below the identity control, but that difference did not survive Holm correction (adjusted p = 0.053). See the
+> [full-cohort report](docs/FULL_COHORT_REPORT.md) and [evidence index](results/full_cohort/README.md). An earlier
+> 20-participant pilot is retained under `results/real_data_pilot/` as exploratory history.
 > `summary.md` is generated from raw predictions by `scripts/make_summary.py`; nothing is typed in by hand. See
 > [`docs/VALIDATION.md`](docs/VALIDATION.md) for the current validation record and
 > [`docs/PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md) for the full project explanation, dataset provenance,
@@ -87,23 +90,26 @@ python scripts/make_summary.py --results results
 `python scripts/run_deep.py --synthetic --smoke` runs a 1–2 minute wiring check on planted-effect synthetic data.
 Synthetic output is **only** for testing the code and is stamped on every figure; never report it.
 
-The real-data pilot used 20 participants, five subject-wise folds, and three seeds. CSP + LDA reached 55.8% mean
-participant accuracy (95% bootstrap CI 52.1–59.6%); the distance-graph GCN reached 53.7%. The distance graph did
-not significantly outperform the identity control after Holm correction. These pilot results do not establish
-full-cohort performance or generalization. The report, raw held-out predictions, checksums, run metadata, histories,
-summary tables, and figures are included under `results/real_data_pilot/`; raw EDF recordings and the derived cache
-are not redistributed.
+The completed full-cohort analysis contains checksum-verified recordings from 104 eligible participants (4,680
+trials), participant-wise out-of-fold predictions, training histories, run metadata, generated tables, and figures.
+EEGNet reached 70.1% mean participant accuracy (95% CI 67.9–72.4%), compared with 61.9% for CSP + LDA. The
+distance-graph GCN reached 56.9%, 1.2 percentage points below the identity GCN (58.1%; Holm-adjusted p = 0.053),
+which does not cross the 0.05 threshold. These results describe the tested dataset and fixed configuration. See the
+[full report](docs/FULL_COHORT_REPORT.md) for the complete table and qualified interpretation, and the
+[evidence index](results/full_cohort/README.md) for provenance and reproduction steps. Raw EDF recordings and the
+derived cache are not redistributed. The earlier 20-participant pilot remains separately documented in
+[`docs/REAL_DATA_PILOT_REPORT.md`](docs/REAL_DATA_PILOT_REPORT.md).
 
 ## Repository layout
 
 ```
 configs/default.yaml     all hyper-parameters
 src/eegfyp/              data, preprocess, graphs, baselines, models, train, evaluate, plots
-scripts/                 run_baselines, run_deep, make_summary, make_data_figures
+scripts/                 verified PhysioNet download, run_baselines, run_deep, summaries, data figures
 tests/                   correctness tests (+ run_tests.py runner)
 notebooks/               run_on_colab.ipynb
-docs/                    PROJECT_DOCUMENTATION.md, VALIDATION.md, REPORT_TEMPLATE.md, PORTFOLIO_SNIPPET.md
-results/                 raw predictions, summary tables, figures  (created by your runs)
+docs/                    full project and cohort reports, validation record, report template, portfolio snippet
+results/                 pilot and full-cohort predictions, provenance, summary tables and figures
 ```
 
 ## Limitations (stated up front)

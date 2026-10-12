@@ -1,9 +1,17 @@
 # EEG Graph Neural Network — portfolio text
 
-**Status:** Software implementation complete; exploratory real-data pilot completed on 20 PhysioNet participants.
+**Status:** Full eligible-cohort experiment completed on PhysioNet EEGMMIDB.
 
-I implemented and ran a reproducible EEG motor-imagery pipeline comparing classical baselines, EEGNet, and electrode-graph neural networks under participant-wise evaluation. On a checksum-verified 20-participant PhysioNet pilot, CSP + LDA reached 55.8% mean participant accuracy (95% bootstrap CI 52.1–59.6%); the distance-graph GCN reached 53.7%. The graph did not significantly outperform the identity control after correction for multiple comparisons. The report includes raw held-out predictions, dataset checksums, run metadata, training histories, summary tables, figures, and limitations. The result is exploratory and does not establish generalization to the full cohort.
+I built and ran a reproducible EEG motor-imagery pipeline on 104 checksum-verified participants, comparing classical
+baselines, EEGNet, five electrode-graph variants, and training-label-shuffle controls. Evaluation used five
+participant-wise folds and three seeds. EEGNet achieved 70.1% mean participant accuracy (95% bootstrap CI
+67.9–72.4%), while CSP + LDA achieved 61.9%. The distance-graph GCN reached 56.9%, 1.2 percentage points below the
+identity-graph control; the difference did not survive Holm correction (adjusted p = 0.053). The result does not
+demonstrate a benefit from the tested spatial graph and is specific to this dataset and configuration.
 
-**Evidence:** [Full project documentation](PROJECT_DOCUMENTATION.md) · [Project source](../README.md) · [Software validation record](VALIDATION.md) · [Colab notebook](../notebooks/run_on_colab.ipynb)
+**Evidence:** [Full-cohort report](FULL_COHORT_REPORT.md) · [Full project documentation](PROJECT_DOCUMENTATION.md) ·
+[Validation record](VALIDATION.md) · [Evidence index, predictions, provenance and figures](../results/full_cohort/README.md) ·
+[Project source](../README.md) · [Colab notebook](../notebooks/run_on_colab.ipynb)
 
-**Scope:** One public dataset, healthy volunteers, and left/right motor-imagery classes. The graph represents a modelling choice; it is not evidence of brain connectivity and is not a clinical tool.
+**Scope:** One public dataset, healthy volunteers, and left/right fist motor-imagery classes. Electrode graphs encode
+a modelling choice; they are not evidence of anatomical connectivity. This is not a clinical or diagnostic tool.

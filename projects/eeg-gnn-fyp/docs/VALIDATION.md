@@ -3,6 +3,8 @@
 **Recorded:** 12 October 2026  
 **Scope:** software behavior only; this is not evidence of EEG decoding performance.
 
+See [PROJECT_DOCUMENTATION.md](PROJECT_DOCUMENTATION.md) for the project concept, dataset, toolchain, method details, code map, and evidence boundaries.
+
 ## Input provenance
 
 - Source archive: `eeg-gnn-fyp.zip` (SHA-256 `d9d800ee3326eed3883fc9dec73ae51c3de114cf70e1217d9495fb845dcfc027`).

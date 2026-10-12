@@ -62,7 +62,7 @@ A reproducible computational neuroscience project using the open-access PhysioNe
 ### EEG Graph Neural Network — Final-year project
 A cross-subject EEG motor-imagery study comparing classical baselines, EEGNet, and electrode-graph models. The software implementation and software checks are complete; real-data experiments and empirical results are still pending.
 
-**Evidence:** [Project source](projects/eeg-gnn-fyp/README.md) · [Software validation record](projects/eeg-gnn-fyp/docs/VALIDATION.md) · [Colab notebook](projects/eeg-gnn-fyp/notebooks/run_on_colab.ipynb)
+**Evidence:** [Full project documentation](projects/eeg-gnn-fyp/docs/PROJECT_DOCUMENTATION.md) · [Project source](projects/eeg-gnn-fyp/README.md) · [Software validation record](projects/eeg-gnn-fyp/docs/VALIDATION.md) · [Colab notebook](projects/eeg-gnn-fyp/notebooks/run_on_colab.ipynb)
 
 > Synthetic smoke-test output is not reported as research evidence. No real EEG performance result is claimed.
 

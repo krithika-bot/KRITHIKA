@@ -5,7 +5,9 @@ Final-year project · Krithika K · B.Sc. Computer Science (AI & ML), VISTAS, Ch
 > **Status: implementation and software checks complete; real-data experiments pending.** No empirical result is
 > claimed until it has been produced by the commands below and committed under `results/`. `results/summary.md` is
 > generated from raw predictions by `scripts/make_summary.py`; nothing is typed in by hand. See
-> [`docs/VALIDATION.md`](docs/VALIDATION.md) for the current validation record.
+> [`docs/VALIDATION.md`](docs/VALIDATION.md) for the current validation record and
+> [`docs/PROJECT_DOCUMENTATION.md`](docs/PROJECT_DOCUMENTATION.md) for the full project explanation, dataset provenance,
+> code map, tooling, evaluation plan, evidence boundaries, and reproduction instructions.
 
 ## Research question
 
@@ -95,7 +97,7 @@ src/eegfyp/              data, preprocess, graphs, baselines, models, train, eva
 scripts/                 run_baselines, run_deep, make_summary, make_data_figures
 tests/                   correctness tests (+ run_tests.py runner)
 notebooks/               run_on_colab.ipynb
-docs/                    VALIDATION.md, REPORT_TEMPLATE.md, PORTFOLIO_SNIPPET.md
+docs/                    PROJECT_DOCUMENTATION.md, VALIDATION.md, REPORT_TEMPLATE.md, PORTFOLIO_SNIPPET.md
 results/                 raw predictions, summary tables, figures  (created by your runs)
 ```
 

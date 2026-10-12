@@ -19,7 +19,7 @@ COMPARISONS = [
     ("csp_lda", "csp_lda_permuted"), ("eegnet", "csp_lda"), ("gcn_distance", "gcn_identity"),
     ("gcn_corr", "gcn_identity"), ("gcn_plv", "gcn_identity"), ("gcn_uniform", "gcn_identity"),
     ("gcn_random", "gcn_identity"), ("gcn_distance", "gcn_random"), ("gcn_distance", "gcn_uniform"),
-    ("gcn_distance", "eegnet"), ("gcn_distance", "csp_lda"),
+    ("gcn_distance", "gcn_corr"), ("gcn_distance", "eegnet"), ("gcn_distance", "csp_lda"),
 ]
 
 

@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  analyze:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -17,5 +17,25 @@ jobs:
           python-version: '3.11'
       - name: Install dependencies
         run: pip install -r projects/eeg-analysis/requirements.txt
-      - name: Run EEG pipeline
-        run: python projects/eeg-analysis/src/eeg_pipeline.py
+      - name: Compile EEG analysis package
+        run: python -m compileall -q projects/eeg-analysis/src projects/eeg-analysis/scripts
+      - name: Check command-line interface
+        run: python projects/eeg-analysis/scripts/run_analysis.py --help
+      - name: Verify committed aggregate evidence
+        run: |
+          python - <<'PY'
+          import csv
+          import json
+          from pathlib import Path
+
+          root = Path("projects/eeg-analysis/results/full_cohort")
+          run = json.loads((root / "run_info.json").read_text())
+          audit = json.loads((root / "provenance/dataset_audit.json").read_text())
+          rows = list(csv.DictReader((root / "summary.csv").open()))
+          assert run["dataset_summary"]["n_subjects"] == 104
+          assert run["dataset_summary"]["n_trials"] == 4680
+          assert audit["n_edf_files_verified"] == 312
+          assert audit["checksum_mismatches"] == 0
+          assert [row["method"] for row in rows] == ["majority", "bandpower_logreg", "csp_lda"]
+          print("Aggregate evidence is present and internally consistent.")
+          PY

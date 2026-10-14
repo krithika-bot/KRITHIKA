@@ -1,0 +1,2 @@
+comparison,n_subjects,mean_subject_accuracy_difference,difference_ci95_low,difference_ci95_high,wilcoxon_p_value_exploratory,note
+csp_lda_minus_bandpower_logreg,104,0.035185,0.015668,0.055556,0.002080,Exploratory paired comparison; not a preregistered hypothesis test.

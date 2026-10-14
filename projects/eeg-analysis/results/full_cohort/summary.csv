@@ -1,0 +1,4 @@
+method,n_subjects,n_folds,n_seeds,n_test_trials_per_seed,mean_subject_accuracy,subject_accuracy_ci95_low,subject_accuracy_ci95_high,mean_trial_accuracy,trial_accuracy_sd_over_seeds,balanced_accuracy,macro_f1,roc_auc
+majority,104,5,3,4680,0.504274,0.500849,0.507692,0.504274,0.000000,0.500000,0.335227,0.496419
+bandpower_logreg,104,5,3,4680,0.583903,0.566097,0.601425,0.583903,0.001922,0.583913,0.583875,0.618098
+csp_lda,104,5,3,4680,0.619088,0.595014,0.644088,0.619088,0.004331,0.618984,0.618960,0.663358

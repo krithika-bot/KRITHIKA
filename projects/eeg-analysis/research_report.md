@@ -1,82 +1,58 @@
-# EEG Analysis: A Reproducible Computational Pipeline for Motor-Related EEG
-
-**Status:** Research project / manuscript draft — results pending execution.
+# EEG Analysis using AI/ML: Subject-wise motor-imagery baselines
 
 ## Abstract
 
-This project develops a reproducible computational pipeline for analysing publicly available electroencephalography (EEG) recordings associated with motor tasks. The objective is to demonstrate a complete workflow from raw EEG data through preprocessing, feature extraction, and a baseline machine-learning model. The project is designed as a bridge between computer science/AI/ML and computational neuroscience. It does not make clinical or diagnostic claims.
+This project evaluates classical machine-learning baselines for decoding left- versus right-hand motor imagery from public EEG. It uses PhysioNet EEGMMIDB runs 4, 8, and 12, 104 participants, and 4,680 labelled epochs. A majority-class reference is compared with per-channel mu/beta Welch power plus logistic regression and a CSP plus shrinkage-LDA pipeline. Evaluation holds out participants in five folds and repeats the partitioning for three seeds. CSP-LDA achieved a mean participant accuracy of 61.9% (95% participant-bootstrap CI 59.5–64.4%); band-power logistic regression achieved 58.4% (56.6–60.1%); the majority reference achieved 50.4% (50.1–50.8%). These exploratory results do not establish clinical performance or generalization outside this cohort and protocol.
 
-## 1. Background
+## Research question
 
-EEG provides time-varying measurements of electrical activity recorded from the scalp. Computational analysis requires careful handling of signal quality, event timing, preprocessing, feature representation, and evaluation. A machine-learning result can be misleading if subject information leaks between training and testing data, so this project uses subject-level separation for its baseline evaluation.
+How do transparent signal features and spatial filters compare for cross-participant left/right hand motor-imagery decoding on a public EEG dataset?
 
-## 2. Dataset
+## Data and provenance
 
-The project uses the PhysioNet EEG Motor Movement/Imagery Dataset (EEGMMIDB), accessed through MNE-Python. The dataset contains 64-channel EEG recordings from 109 volunteers and includes motor execution and motor imagery tasks. For the first implementation, runs 3, 7, and 11 are used because they correspond to left-versus-right fist motor execution in the documented protocol.
+PhysioNet EEG Motor Movement/Imagery Database v1.0.0 (EEGMMIDB), runs 4, 8, and 12. The task uses T1 for left-hand imagery and T2 for right-hand imagery. The selected cohort contains 104 of 109 participants; five were not included in the preselected cohort, and no reason is inferred for their omission. All 312 EDF files used here were SHA-256 checked against the installed MNE-Python EEGBCI checksum registry with zero mismatches. Raw data and per-file participant identifiers are not included in the public evidence package.
 
-Dataset citation:
+## Methods
 
-Schalk, G. (2009). EEG Motor Movement/Imagery Dataset (version 1.0.0). PhysioNet. https://doi.org/10.13026/C28G6P
+EDF files were loaded and channel names standardized with MNE-Python. EEG was FIR band-pass filtered from 8 to 30 Hz. Epochs cover cue onset to 3.99375 seconds at 160 Hz (640 samples), with epochs annotated as bad rejected. Every epoch was demeaned channel-wise and scaled by its whole-epoch RMS.
 
-Original BCI2000 publication:
+The baseline models are:
 
-Schalk, G., McFarland, D. J., Hinterberger, T., Birbaumer, N., & Wolpaw, J. R. (2004). BCI2000: A General-Purpose Brain-Computer Interface (BCI) System. IEEE Transactions on Biomedical Engineering, 51(6), 1034–1043.
+1. `DummyClassifier(strategy="prior")` majority-class reference.
+2. Welch log-power features in the mu (8–13 Hz) and beta (13–30 Hz) bands for each of 64 channels, followed by training-fold standardization and L2 logistic regression (`C=0.1`).
+3. Six regularized Common Spatial Patterns filters with log-variance features, followed by shrinkage Linear Discriminant Analysis.
 
-## 3. Research Question
+The 104 participants are split into five disjoint test folds per seed, for seeds 0, 1, and 2. Each participant is tested once per seed and is never used in training for that fold. The 95% interval for mean participant accuracy uses a percentile bootstrap across participants (10,000 resamples). The CSP-LDA versus band-power logistic-regression comparison is paired by participant and exploratory; it was not preregistered.
 
-Can a simple, reproducible feature-based machine-learning pipeline distinguish the documented motor-task classes in a held-out-subject evaluation on a public EEG dataset?
+## Results
 
-## 4. Hypothesis
+| Model | Mean participant accuracy | 95% CI | Balanced accuracy | Macro F1 | ROC AUC |
+|---|---:|---:|---:|---:|---:|
+| Majority reference | 50.4% | 50.1–50.8% | 50.0% | 33.5% | 49.6% |
+| Band-power logistic regression | 58.4% | 56.6–60.1% | 58.4% | 58.4% | 61.8% |
+| CSP + shrinkage LDA | 61.9% | 59.5–64.4% | 61.9% | 61.9% | 66.3% |
 
-A baseline model using basic frequency-band EEG features should capture some task-related structure, but performance is expected to depend on preprocessing, feature choice, subject variability, and the evaluation design.
+CSP-LDA was 3.5 percentage points higher than band-power logistic regression in mean participant accuracy (paired 95% bootstrap CI 1.6–5.6 points; exploratory Wilcoxon signed-rank p=0.0021). This is evidence for a difference under this particular cross-subject analysis, not proof of superiority on other datasets.
 
-## 5. Computational Pipeline
+## Conclusion
 
-1. Download selected EEG recordings using MNE-Python.
-2. Standardize EEG channel names and montage information.
-3. Apply a conservative 1–40 Hz band-pass filter.
-4. Extract two-second epochs following task events.
-5. Estimate power spectral density with Welch's method.
-6. Summarize theta (4–8 Hz), alpha (8–13 Hz), and beta (13–30 Hz) band-power features.
-7. Standardize features.
-8. Train a logistic-regression baseline.
-9. Evaluate on subjects excluded from training.
-10. Report metrics only after the script has been executed and independently checked.
+Both feature-based methods exceeded the majority reference on this selected cohort. CSP-LDA had higher observed accuracy than band-power logistic regression. The results support the project’s limited methodological question: feature and spatial-filter choices affect baseline performance. They do not establish a robust decoder, causal explanation of EEG activity, or clinical use.
 
-## 6. Evaluation
+## Limitations
 
-The primary evaluation is subject-grouped train/test separation. This is important because randomly splitting epochs can place highly correlated recordings from the same participant in both sets and produce an overly optimistic estimate of generalization.
+- The analysis uses 104 of the database’s 109 participants; five were outside the selected verified cohort.
+- Only motor imagery runs are analyzed; motor execution is not included.
+- Bad-annotation rejection is not comprehensive artifact removal. No ICA, EOG regression, or amplitude threshold was used.
+- Hyperparameters were fixed rather than tuned in a nested cross-validation design.
+- Performance estimates are specific to this dataset, acquisition system, and preprocessing.
+- No clinical population or clinical endpoint was studied.
 
-Metrics to report after execution:
+## Reproducibility
 
-- Number of samples
-- Training subjects
-- Test subjects
-- Accuracy
-- Precision, recall, and F1-score
-- Confusion matrix
+See [README.md](README.md), [methods and decisions](docs/METHODS.md), [run metadata](results/full_cohort/run_info.json), [checksum audit](results/full_cohort/provenance/dataset_audit.json), and [aggregate result files](results/full_cohort/).
 
-**No numerical result is reported in this draft until the pipeline is actually run.**
+## References
 
-## 7. Limitations
-
-- The initial implementation is a baseline rather than a state-of-the-art decoder.
-- Only a small subject subset is used initially for rapid reproducibility.
-- Band-power features are intentionally simple.
-- EEG preprocessing choices can materially affect results.
-- Public motor-task data should not be interpreted as evidence of clinical diagnostic performance.
-- Cross-subject generalization is a separate research question from within-subject decoding.
-
-## 8. Future Work
-
-- Expand to more subjects and runs.
-- Compare alternative feature representations.
-- Add common-spatial-pattern features for motor imagery experiments.
-- Compare logistic regression with tree-based and neural models.
-- Add nested cross-validation where appropriate.
-- Study robustness to preprocessing choices.
-- Connect the computational pipeline to the longer-term NBN human-state modelling research direction without conflating this benchmark with NBN validation.
-
-## 9. Reproducibility
-
-The repository contains the Python pipeline and dependency specification. Dataset files are not committed to GitHub; they are fetched through MNE from the public PhysioNet resource. Users must follow the dataset's attribution and license requirements.
+1. Schalk, G. (2009). *EEG Motor Movement/Imagery Dataset (version 1.0.0).* PhysioNet. https://doi.org/10.13026/C28G6P.
+2. Schalk, G., McFarland, D. J., Hinterberger, T., Birbaumer, N., & Wolpaw, J. R. (2004). BCI2000: A General-Purpose Brain-Computer Interface (BCI) System. *IEEE Transactions on Biomedical Engineering*, 51(6), 1034–1043. https://doi.org/10.1109/TBME.2004.827072.
+3. Ramoser, H., Müller-Gerking, J., & Pfurtscheller, G. (2000). Optimal spatial filtering of single trial EEG during imagined hand movement. *IEEE Transactions on Rehabilitation Engineering*, 8(4), 441–446. https://doi.org/10.1109/86.895946.

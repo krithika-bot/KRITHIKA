@@ -1,0 +1,15 @@
+{
+  "aggregate_file_fingerprint_sha256": "a7a9de57727d6483c2973153eb75a06568a4d4764c5130d4d63e37fd61829cf9",
+  "checksum_mismatches": 0,
+  "missing_files": 0,
+  "n_edf_files_verified": 312,
+  "n_subjects": 104,
+  "per_file_manifest_published": false,
+  "runs_per_subject": [
+    4,
+    8,
+    12
+  ],
+  "sha256_verified_against": "MNE-Python eegbci_checksums.txt registry",
+  "total_file_bytes": 800427552
+}

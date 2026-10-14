@@ -1,0 +1,98 @@
+{
+  "aggregate_outputs_only": true,
+  "created_at_utc": "2026-10-14T13:40:53.155750+00:00",
+  "data_source": "https://physionet.org/content/eegmmidb/1.0.0/",
+  "dataset": "PhysioNet EEG Motor Movement/Imagery Database (EEGMMIDB) v1.0.0",
+  "dataset_doi": "10.13026/C28G6P",
+  "dataset_integrity": {
+    "aggregate_file_fingerprint_sha256": "a7a9de57727d6483c2973153eb75a06568a4d4764c5130d4d63e37fd61829cf9",
+    "checksum_mismatches": 0,
+    "missing_files": 0,
+    "n_edf_files_verified": 312,
+    "n_subjects": 104,
+    "per_file_manifest_published": false,
+    "runs_per_subject": [
+      4,
+      8,
+      12
+    ],
+    "sha256_verified_against": "MNE-Python eegbci_checksums.txt registry",
+    "total_file_bytes": 800427552
+  },
+  "dataset_license": "Open Data Commons Attribution License v1.0",
+  "dataset_summary": {
+    "class_counts_left_right": {
+      "0": 2360,
+      "1": 2320
+    },
+    "n_channels": 64,
+    "n_samples_per_trial": 640,
+    "n_subjects": 104,
+    "n_subjects_skipped": 0,
+    "n_trials": 4680,
+    "sampling_rate_hz": 160.0
+  },
+  "evaluation": {
+    "confidence_interval": "percentile bootstrap over participant accuracies, 10,000 resamples",
+    "folds_per_seed": 5,
+    "participant_leakage_check": "asserted disjoint train and test subject groups per fold",
+    "preprocessing_fit_on_test_data": false,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "split_unit": "participant"
+  },
+  "exploratory_comparison": {
+    "comparison": "csp_lda_minus_bandpower_logreg",
+    "difference_ci95_high": 0.055555555555555566,
+    "difference_ci95_low": 0.015667735042735047,
+    "mean_subject_accuracy_difference": 0.035185185185185194,
+    "n_subjects": 104,
+    "note": "Exploratory paired comparison; not a preregistered hypothesis test.",
+    "wilcoxon_p_value_exploratory": 0.002079808578460346
+  },
+  "models": [
+    "majority",
+    "bandpower_logreg",
+    "csp_lda"
+  ],
+  "participant_level_predictions_committed": false,
+  "project_version": "1.0.0",
+  "raw_edf_committed": false,
+  "selection": {
+    "artifact_policy": "Reject MNE bad annotations; no additional automated artifact rejection.",
+    "channels": 64,
+    "class_mapping": {
+      "T1": "left",
+      "T2": "right"
+    },
+    "epoch_window_seconds": [
+      0.0,
+      3.99375
+    ],
+    "filter_hz": [
+      8.0,
+      30.0
+    ],
+    "omission_note": "Five participants were not in the local checksum-verified cache; this run does not infer the reason.",
+    "participants_omitted_from_cached_cohort": 5,
+    "participants_used": 104,
+    "run_task": "left-versus-right hand motor imagery",
+    "runs": [
+      4,
+      8,
+      12
+    ],
+    "sampling_rate_hz": 160.0
+  },
+  "software_versions": {
+    "mne": "1.13.2",
+    "numpy": "2.5.4",
+    "pandas": "3.0.6",
+    "python": "3.12.14",
+    "scikit_learn": "1.9.1",
+    "scipy": "1.18.1"
+  }
+}

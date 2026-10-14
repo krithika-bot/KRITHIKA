@@ -1,0 +1,7 @@
+method,true_class,predicted_left_count,predicted_right_count,predicted_left_fraction,predicted_right_fraction
+majority,left,7080,0,1.000000,0.000000
+majority,right,6960,0,1.000000,0.000000
+bandpower_logreg,left,4126,2954,0.582768,0.417232
+bandpower_logreg,right,2888,4072,0.414943,0.585057
+csp_lda,left,4469,2611,0.631215,0.368785
+csp_lda,right,2737,4223,0.393247,0.606753

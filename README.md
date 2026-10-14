@@ -66,6 +66,13 @@ A cross-subject EEG motor-imagery study comparing classical baselines, EEGNet, a
 
 > Synthetic smoke-test output is not reported as research evidence. No real EEG performance result is claimed.
 
+### Neural Mass Model — Wilson–Cowan population dynamics
+A deterministic implementation of the published two-population excitatory/inhibitory model, with reproducible parameter sweeps, timestep sensitivity evidence, generated CSVs, and vector figures.
+
+**Evidence:** [Complete project documentation](projects/neural-mass-model/PROJECT_DOCUMENTATION.md) · [Methods](projects/neural-mass-model/docs/METHODS.md) · [Results](projects/neural-mass-model/docs/RESULTS.md) · [Reproduction code](projects/neural-mass-model/scripts/run_analysis.py)
+
+> Software simulation only. No EEG, human, animal, or clinical data were used, and no biological validity is claimed.
+
 ## Reproducible computational demonstrations
 
 These small projects are deliberately reproducible and use synthetic data. They demonstrate the computational foundation behind my transition from AI/ML toward neuroscience research.

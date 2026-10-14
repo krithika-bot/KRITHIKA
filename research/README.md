@@ -15,4 +15,6 @@ This directory contains research-oriented documentation for projects at differen
 - [NBN](../projects/NBN.md) — Neuro-Behavior Network conceptual R&D framework.
 - [NBN manuscript draft](NBN_Research_Manuscript_Draft_v1.md) — conceptual research manuscript.
 
+- [Neural Mass Model](../projects/neural-mass-model/PROJECT_DOCUMENTATION.md) — reproducible Wilson–Cowan simulation with numerical evidence; no empirical or biological validation claimed.
+
 The portfolio deliberately separates demonstrated work from proposed research and does not present unpublished results as established findings.

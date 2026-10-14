@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" role="img" aria-label="Excitatory oscillation amplitude across external drive">
+<rect width="100%" height="100%" fill="#ffffff"/>
+<text x="450.0" y="34" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#18232d">Excitatory oscillation amplitude across external drive</text>
+<line x1="88.00" y1="76" x2="88.00" y2="422" stroke="#e8ecef"/>
+<text x="88.00" y="445" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#53616b">0.8</text>
+<line x1="217.33" y1="76" x2="217.33" y2="422" stroke="#e8ecef"/>
+<text x="217.33" y="445" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#53616b">1.08</text>
+<line x1="346.67" y1="76" x2="346.67" y2="422" stroke="#e8ecef"/>
+<text x="346.67" y="445" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#53616b">1.37</text>
+<line x1="476.00" y1="76" x2="476.00" y2="422" stroke="#e8ecef"/>
+<text x="476.00" y="445" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#53616b">1.65</text>
+<line x1="605.33" y1="76" x2="605.33" y2="422" stroke="#e8ecef"/>
+<text x="605.33" y="445" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#53616b">1.93</text>
+<line x1="734.67" y1="76" x2="734.67" y2="422" stroke="#e8ecef"/>
+<text x="734.67" y="445" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#53616b">2.22</text>
+<line x1="864.00" y1="76" x2="864.00" y2="422" stroke="#e8ecef"/>
+<text x="864.00" y="445" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#53616b">2.5</text>
+<line x1="88" y1="422.00" x2="864" y2="422.00" stroke="#e8ecef"/>
+<text x="76" y="426.00" text-anchor="end" font-family="Arial,sans-serif" font-size="12" fill="#53616b">0</text>
+<line x1="88" y1="352.80" x2="864" y2="352.80" stroke="#e8ecef"/>
+<text x="76" y="356.80" text-anchor="end" font-family="Arial,sans-serif" font-size="12" fill="#53616b">0.04</text>
+<line x1="88" y1="283.60" x2="864" y2="283.60" stroke="#e8ecef"/>
+<text x="76" y="287.60" text-anchor="end" font-family="Arial,sans-serif" font-size="12" fill="#53616b">0.08</text>
+<line x1="88" y1="214.40" x2="864" y2="214.40" stroke="#e8ecef"/>
+<text x="76" y="218.40" text-anchor="end" font-family="Arial,sans-serif" font-size="12" fill="#53616b">0.12</text>
+<line x1="88" y1="145.20" x2="864" y2="145.20" stroke="#e8ecef"/>
+<text x="76" y="149.20" text-anchor="end" font-family="Arial,sans-serif" font-size="12" fill="#53616b">0.16</text>
+<line x1="88" y1="76.00" x2="864" y2="76.00" stroke="#e8ecef"/>
+<text x="76" y="80.00" text-anchor="end" font-family="Arial,sans-serif" font-size="12" fill="#53616b">0.2</text>
+<line x1="88" y1="422" x2="864" y2="422" stroke="#52616b" stroke-width="1.3"/>
+<line x1="88" y1="76" x2="88" y2="422" stroke="#52616b" stroke-width="1.3"/>
+<text x="476.0" y="480" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#26343d">External drive P</text>
+<text x="23" y="249.0" text-anchor="middle" transform="rotate(-90 23 249.0)" font-family="Arial,sans-serif" font-size="14" fill="#26343d">E peak-to-peak amplitude</text>
+<polyline points="88.00,422.00 110.82,422.00 133.65,422.00 156.47,422.00 179.29,422.00 202.12,422.00 224.94,128.65 247.76,126.61 270.59,128.11 293.41,132.92 316.24,140.39 339.06,150.02 361.88,161.46 384.71,174.48 407.53,188.96 430.35,204.88 453.18,222.31 476.00,241.50 498.82,262.89 521.65,287.39 544.47,317.03 567.29,358.47 590.12,421.60 612.94,422.00 635.76,422.00 658.59,422.00 681.41,422.00 704.24,422.00 727.06,422.00 749.88,422.00 772.71,422.00 795.53,422.00 818.35,422.00 841.18,422.00 864.00,422.00" fill="none" stroke="#167d8d" stroke-width="2.6" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="88.00" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="110.82" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="133.65" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="156.47" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="179.29" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="202.12" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="224.94" cy="128.65" r="3.4" fill="#167d8d"/>
+<circle cx="247.76" cy="126.61" r="3.4" fill="#167d8d"/>
+<circle cx="270.59" cy="128.11" r="3.4" fill="#167d8d"/>
+<circle cx="293.41" cy="132.92" r="3.4" fill="#167d8d"/>
+<circle cx="316.24" cy="140.39" r="3.4" fill="#167d8d"/>
+<circle cx="339.06" cy="150.02" r="3.4" fill="#167d8d"/>
+<circle cx="361.88" cy="161.46" r="3.4" fill="#167d8d"/>
+<circle cx="384.71" cy="174.48" r="3.4" fill="#167d8d"/>
+<circle cx="407.53" cy="188.96" r="3.4" fill="#167d8d"/>
+<circle cx="430.35" cy="204.88" r="3.4" fill="#167d8d"/>
+<circle cx="453.18" cy="222.31" r="3.4" fill="#167d8d"/>
+<circle cx="476.00" cy="241.50" r="3.4" fill="#167d8d"/>
+<circle cx="498.82" cy="262.89" r="3.4" fill="#167d8d"/>
+<circle cx="521.65" cy="287.39" r="3.4" fill="#167d8d"/>
+<circle cx="544.47" cy="317.03" r="3.4" fill="#167d8d"/>
+<circle cx="567.29" cy="358.47" r="3.4" fill="#167d8d"/>
+<circle cx="590.12" cy="421.60" r="3.4" fill="#167d8d"/>
+<circle cx="612.94" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="635.76" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="658.59" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="681.41" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="704.24" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="727.06" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="749.88" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="772.71" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="795.53" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="818.35" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="841.18" cy="422.00" r="3.4" fill="#167d8d"/>
+<circle cx="864.00" cy="422.00" r="3.4" fill="#167d8d"/>
+<line x1="96" y1="56" x2="120" y2="56" stroke="#167d8d" stroke-width="3"/>
+<text x="127" y="60" font-family="Arial,sans-serif" font-size="12" fill="#34434d">E amplitude</text>
+</svg>

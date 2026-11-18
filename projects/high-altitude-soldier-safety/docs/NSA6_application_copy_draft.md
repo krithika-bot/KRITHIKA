@@ -26,7 +26,7 @@ The proposed Phase-1 hardware comprises removable load-path force sensors, a pac
 
 ## What is different / innovation claim
 
-Broad soldier wearables, Indian load-carriage systems, and backpack shoulder/hip balance sensors are already documented; novelty is not established. The current hypothesis is a removable low-mass load-share monitor whose quality gate can identify when movement, temperature change, drift, or sensor detachment makes the estimate unreliable. This possible contribution must be compared with a simple threshold baseline and supported by calibrated bench data. It is not yet a claim of patentable novelty or superiority. See [`novelty_research_gap_v2.md`](novelty_research_gap_v2.md).
+Broad soldier wearables, Indian load-carriage systems, backpack shoulder/hip sensing, motion-aware measurement, and quality-gated load estimation are already documented; novelty is not established. The project currently makes no novelty claim. Its R&D question is whether a low-cost removable two-channel retrofit can produce repeatable load-share measurements on a defined pack and add useful evidence compared with simple baselines. See [`novelty_research_gap_v2.md`](novelty_research_gap_v2.md).
 
 ## Intended users and potential impact
 

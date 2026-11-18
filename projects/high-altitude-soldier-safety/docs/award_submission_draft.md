@@ -34,7 +34,7 @@ The student reports owning an ESP32/Arduino board, but it is not connected to a 
 
 ## Novelty / differentiation
 
-Novelty is not established. Prior art expressly includes shoulder/hip load-balance sensing and feedback, as well as Indian load-carriage and soldier-support technologies. The current hypothesis is a removable, low-mass implementation whose relative load-share output is withheld when its sensors are unreliable under controlled movement and temperature changes. A claim-by-claim prior-art review and comparative bench results are required. Do not state “first,” “unique,” or “patented.” See [`novelty_research_gap_v2.md`](novelty_research_gap_v2.md).
+Novelty is not established, and the project currently makes no novelty claim. Prior art includes shoulder/hip load sensing, backpack alerts, motion-aware pack measurement, and quality-gated load estimation. The R&D question is whether a low-cost, removable two-channel retrofit can give repeatable measurements on a defined pack and add useful evidence compared with simple baselines. Do not state “first,” “unique,” or “patented.” See [`novelty_research_gap_v2.md`](novelty_research_gap_v2.md).
 
 ## Impact
 

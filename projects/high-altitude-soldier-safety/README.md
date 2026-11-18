@@ -42,7 +42,7 @@ See [`docs/hardware_and_system_plan.md`](docs/hardware_and_system_plan.md). Begi
 
 ## Recommended novelty direction
 
-The strongest current student-scale direction is a hardware-first, removable backpack load-share monitor with a sensor-quality gate. This is a **hypothesis to validate**, not an established novelty claim: shoulder/hip balance sensors and backpack alerts already appear in prior art. See [`docs/novelty_research_gap_v2.md`](docs/novelty_research_gap_v2.md) for the prior-art comparison, hardware scope, claims to avoid, and bench validation plan.
+The most buildable current direction is a hardware-first, removable backpack load-share bench demonstrator. This is **not an established novelty claim**: shoulder/hip balance sensing, motion-aware pack measurement, and signal-quality gating all have close prior art. See [`docs/novelty_research_gap_v2.md`](docs/novelty_research_gap_v2.md) for the prior-art comparison and [`docs/weakness_recovery_and_submission_plan.md`](docs/weakness_recovery_and_submission_plan.md) for the staged build, evidence plan, and NSA application checklist.
 
 ## Evidence rule
 

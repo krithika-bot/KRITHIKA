@@ -34,6 +34,8 @@ Open `himalayan-soldier-safety.code-workspace` in VS Code, or open this folder. 
 - `data/synthetic_demo.csv` — clearly labelled synthetic demonstration values.
 - `tests/` — software behavior checks; these are not health or sensor validation.
 - `docs/` — architecture, hardware plan, validation protocol, evidence register, and award narrative draft.
+- [`docs/full_project_blueprint_v1.md`](docs/full_project_blueprint_v1.md) — end-to-end modular architecture for pack load-share and a separate future wellbeing research stream, with validation gates and safety boundaries.
+- [`docs/weakness_recovery_and_submission_plan.md`](docs/weakness_recovery_and_submission_plan.md) — prioritized build/evidence plan and current NSA submission checklist.
 - `evidence/` — empty templates for future real bench evidence. Blank fields must be filled only after the corresponding test is actually run.
 
 ## Proposed hardware path (bench prototype first)

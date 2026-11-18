@@ -1,6 +1,6 @@
 # Himalayan Soldier Safety & Load Monitor
 
-**Project status:** software demonstrator scaffold; synthetic-data smoke run only. No hardware prototype, soldier/user study, clinical validation, or field trial is claimed.
+**Project status:** software demonstrator scaffold; synthetic-data smoke run only. The student reports having one ESP32/Arduino controller, not connected to sensors. No load-sensor hardware prototype, soldier/user study, clinical validation, or field trial is claimed.
 
 ## What this project currently does
 
@@ -50,7 +50,7 @@ Every project statement must be tagged as one of: **documented source**, **softw
 
 ## Current limitations
 
-- No embedded ESP32 firmware or physical sensor has been connected yet.
+- The ESP32/Arduino controller is not connected to a physical load sensor yet; no embedded load-monitor firmware or sensor result is claimed.
 - Signal quality is supplied in the CSV; it is not calculated from a real PPG waveform yet.
 - HR, surface-temperature proxy, and motion fields are logged as values only; no clinical thresholds or diagnostic interpretation is implemented.
 - No machine-learning model is included. ML is not justified until a clearly defined non-clinical prediction task and suitable data exist.

@@ -53,7 +53,7 @@
     </section>
 
     <section class="proof-strip" aria-label="Current evidence summary">
-      <div><strong>8 / 8</strong><span>software checks passed</span></div><div><strong>3</strong><span>synthetic rows processed</span></div><div><strong>0</strong><span>physical sensor tests</span></div><div class="proof-note">Current stage: software demonstration only</div>
+      <div><strong>8 / 8</strong><span>software checks passed</span></div><div><strong>3</strong><span>synthetic rows processed</span></div><div><strong>0</strong><span>physical sensor tests</span></div><div class="proof-note">Current stage: software demo + ESP32 controller on hand; no sensor rig</div>
     </section>
 
     <section class="section-wrap section-block" id="system">
@@ -78,7 +78,7 @@
           <div class="explode-stage" id="explodeStage" data-view="exploded" aria-label="Interactive 3D-style exploded electronics model">
             <div class="part-label label-top">SOFT OUTER COVER <span>proposed, washable sleeve</span></div>
             <div class="hardware-part cover-part"><span class="cover-window"></span></div>
-            <div class="part-label label-board">ESP32 DEV BOARD <span>candidate local controller</span></div>
+            <div class="part-label label-board">ESP32 DEV BOARD <span>controller on hand; not integrated</span></div>
             <div class="hardware-part esp-board"><span class="usb-port"></span><span class="metal-shield">ESP32</span><span class="antenna">2.4G</span><span class="board-pins pins-left"></span><span class="board-pins pins-right"></span></div>
             <div class="part-label label-motion">IMU MODULE <span>MPU6050 candidate</span></div>
             <div class="hardware-part imu-board"><span class="chip">6-AXIS</span><span class="pins"></span></div>
@@ -92,7 +92,7 @@
           <div class="view-caption"><span class="status-tag status-proposed">PROPOSED PARTS</span><span>Board proportions are illustrative, not to scale.</span></div>
         </div>
         <div class="component-list">
-          <article class="component-item"><span class="component-index">01</span><div><h3>ESP32 DevKit</h3><p>Candidate local controller. Exact board and power design are not chosen.</p></div><span class="component-state">PLANNED</span></article>
+          <article class="component-item"><span class="component-index">01</span><div><h3>ESP32 DevKit</h3><p>One controller is reported on hand. It is not integrated with the proposed load sensors.</p></div><span class="component-state">ON HAND</span></article>
           <article class="component-item"><span class="component-index">02</span><div><h3>Load-path force links × 4</h3><p>Candidate left/right shoulder and hip sensing points. Compare inline force cells with pressure pads; neither has been selected or tested.</p></div><span class="component-state">CORE R&amp;D</span></article>
           <article class="component-item"><span class="component-index">03</span><div><h3>Pack-frame IMU</h3><p>Candidate motion-context sensor; helps test when movement makes a balance estimate unreliable. Not a fatigue detector.</p></div><span class="component-state">CANDIDATE</span></article>
           <article class="component-item"><span class="component-index">04</span><div><h3>Module temperature sensor</h3><p>Tags hardware temperature to study sensor drift. It does not measure body or core temperature.</p></div><span class="component-state component-optional">CANDIDATE</span></article>
@@ -151,10 +151,10 @@
       <div class="section-heading"><p class="eyebrow">05 / NOVELTY &amp; EVIDENCE</p><h2>What is proven, what is not</h2><p>A strong award story needs a clear new contribution and evidence that it works. Here is the current audit.</p></div>
       <div class="evidence-grid">
         <article class="evidence-card evidence-green"><div class="card-top"><span class="evidence-code">A / SOFTWARE</span><span class="evidence-mark">✓</span></div><h3>Verified locally</h3><ul><li>8/8 software behavior checks passed.</li><li>CSV → offline prompt flow works on synthetic examples.</li><li>Low-quality input does not produce an “all clear”.</li></ul><a href="../docs/software_validation_record.md">Open validation record ↗</a></article>
-        <article class="evidence-card evidence-amber"><div class="card-top"><span class="evidence-code">B / PRIOR ART</span><span class="evidence-mark">!</span></div><h3>Novelty unproven</h3><ul><li>DRDO already has high-altitude load-carriage and soldier-health R&amp;D.</li><li>Patent prior art directly covers shoulder/hip load-balance sensing and feedback.</li><li>Only a measured reliability contribution could separate this prototype.</li></ul><a href="../docs/novelty_research_gap_v2.md">Open current novelty gap review ↗</a></article>
+        <article class="evidence-card evidence-amber"><div class="card-top"><span class="evidence-code">B / PRIOR ART</span><span class="evidence-mark">!</span></div><h3>Novelty unproven</h3><ul><li>DRDO already has high-altitude load-carriage and soldier-health R&amp;D.</li><li>Patents cover backpack strap/load sensing and alerts; another carrier patent covers signal-quality gating.</li><li>Dynamic backpack force estimation is also in published research. A distinct contribution has to be demonstrated.</li></ul><a href="../docs/novelty_research_gap_v2.md">Open current novelty gap review ↗</a></article>
         <article class="evidence-card evidence-red"><div class="card-top"><span class="evidence-code">C / PHYSICAL TESTS</span><span class="evidence-mark">×</span></div><h3>Not tested yet</h3><ul><li>No physical sensor or wearable assembled.</li><li>No cold/movement accuracy or battery results.</li><li>No soldier, clinician, or user study.</li></ul><a href="../docs/research/high_altitude_prototype_validation_plan_v1.md">Open bench test plan ↗</a></article>
       </div>
-      <div class="novelty-proposal"><div><span class="eyebrow">HARDWARE-FIRST NOVELTY HYPOTHESIS</span><h3>Cold- and motion-aware load-share estimate with an uncertainty gate</h3><p>Existing patents already describe shoulder/hip load-balance sensing and alerts. Candidate contribution: a removable, offline retrofit that reports relative load share only when sensor checks pass, and withholds prompts under drift, motion corruption, or detachment. Compare against a simple threshold baseline on a calibrated bench rig. <a href="../docs/novelty_research_gap_v2.md">Open full prior-art and validation brief ↗</a></p></div><span class="hypothesis-pill">RESEARCH HYPOTHESIS · NOT PROVEN NOVEL</span></div>
+      <div class="novelty-proposal"><div><span class="eyebrow">HARDWARE-FIRST R&amp;D QUESTION</span><h3>Can a low-cost retrofit measure load share repeatably on a defined pack?</h3><p>Existing disclosures overlap with load sensing, motion-aware measurement, and quality gating. The current research question is whether a measured, low-cost two-channel result on a defined pack adds useful evidence beyond simple baselines. Novelty is unproven; compare on a calibrated bench rig before claiming differentiation. <a href="../docs/novelty_research_gap_v2.md">Open full prior-art and validation brief ↗</a></p></div><span class="hypothesis-pill">R&amp;D QUESTION · NOT PROVEN NOVEL</span></div>
     </section>
 
     <section class="section-wrap section-block readiness-section" id="readiness">
@@ -163,26 +163,26 @@
         <div class="score-row score-head"><span>Dimension</span><span>Current</span><span>Why</span><span>Next evidence</span></div>
         <div class="score-row"><b>Student / Defence theme fit</b><span class="score-value">8/10</span><span>Student category and defence stream align.</span><span>Check exact live rules and stream.</span></div>
         <div class="score-row"><b>Novelty today</b><span class="score-value score-low">2/10</span><span>Shoulder/hip balance sensing and alerts already have prior art; our reliability angle is unproven.</span><span>Claim review + comparative bench data.</span></div>
-        <div class="score-row"><b>Prototype evidence</b><span class="score-value score-low">2/10</span><span>Software demo only; no pack force sensors assembled.</span><span>Build and calibrate the load-share rig.</span></div>
+        <div class="score-row"><b>Prototype evidence</b><span class="score-value score-low">2/10</span><span>Software demo + controller only; no load sensors assembled.</span><span>Build and calibrate a two-channel load-share rig.</span></div>
         <div class="score-row"><b>Impact / scale proof</b><span class="score-value score-low">2/10</span><span>No user validation, cost, or measured outcome.</span><span>Authorized feedback + costed use path.</span></div>
         <div class="score-row score-total"><b>NSA readiness now</b><span class="score-value score-low">3/10</span><span>Early concept; no load-sensor or real-world evidence.</span><span>Prove one differentiator with repeatable data.</span></div>
       </div>
       <div class="award-note"><span class="note-icon">!</span><p><b>Internal weighted self-review: 28/100 (~2.8/10), not a jury score or chance of winning.</b> Provisional scores: Innovation 3/10, Scalability 3/10, Economic Impact 2/10, Inclusivity &amp; Team Diversity 3/10. The official weights are 45/25/20/10. Current weak points are novelty proof, hardware evidence, user validation, and a credible cost/scale path.</p></div>
-      <div class="source-links"><a href="https://www.startupindia.gov.in/content/dam/invest-india/nsa-2026/banner/NSA-6.0-Guidelines-Student.pdf" target="_blank" rel="noreferrer">Official student guidelines ↗</a><a href="https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2329132&amp;lang=1&amp;reg=3" target="_blank" rel="noreferrer">Official NSA 6.0 announcement ↗</a><a href="../docs/NSA6_application_copy_draft.md">Application copy draft ↗</a></div>
+      <div class="source-links"><a href="https://www.startupindia.gov.in/content/dam/invest-india/nsa-2026/banner/NSA-6.0-Guidelines-Student.pdf" target="_blank" rel="noreferrer">Official student guidelines ↗</a><a href="https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2329132&amp;lang=1&amp;reg=3" target="_blank" rel="noreferrer">Official NSA 6.0 announcement ↗</a><a href="../docs/NSA6_application_copy_draft.md">Application copy draft ↗</a><a href="../docs/weakness_recovery_and_submission_plan.md">Weakness recovery plan ↗</a></div>
     </section>
 
     <section class="section-wrap section-block roadmap-section">
       <div class="section-heading"><p class="eyebrow">07 / BUILD SEQUENCE</p><h2>Turn the concept into measured proof</h2></div>
       <div class="roadmap">
-        <article><span>01</span><h3>Freeze one question</h3><p>Start with signal-quality behavior. Keep the pack-scale experiment separate.</p><small>NOW</small></article>
-        <article><span>02</span><h3>Bench hardware</h3><p>Connect one sensor to a local logger; record exact parts, wiring, power, and mass.</p><small>PLANNED</small></article>
-        <article><span>03</span><h3>Measure failure cases</h3><p>Use scripted poor inputs and known weights. Save raw logs and unsuccessful runs.</p><small>PLANNED</small></article>
+        <article><span>01</span><h3>Freeze one question</h3><p>Measure left/right shoulder load share on a dummy-pack fixture. Keep body-health monitoring separate.</p><small>NOW</small></article>
+        <article><span>02</span><h3>Build two channels</h3><p>Add two appropriately rated load cells and amplifiers after a safe fixture review.</p><small>PLANNED</small></article>
+        <article><span>03</span><h3>Compare measurements</h3><p>Use known reference loads, repeat refits, movement and fault tests. Save raw logs and failures.</p><small>PLANNED</small></article>
         <article><span>04</span><h3>Get relevant feedback</h3><p>Ask an authorized, qualified expert whether the output is useful and safe to interpret.</p><small>PLANNED</small></article>
       </div>
       <p class="safety-line">No self-exposure to hypoxia or dangerous cold. No serving-soldier testing without formal permission and oversight.</p>
     </section>
   </main>
 
-  <footer class="footer"><div class="section-wrap footer-inner"><div><span class="brand-mark">H</span><strong>HIMALAYAN SOLDIER SAFETY &amp; LOAD MONITOR</strong><p>Student concept · India-focused · non-diagnostic engineering work</p></div><p class="footer-disclaimer">All 3D-style drawings on this site are illustrative concept diagrams, not photographs of a finished device. Project claims reflect the evidence status shown here.</p></div></footer>
+  <footer class="footer"><div class="section-wrap footer-inner"><div><span class="brand-mark">H</span><strong>HIMALAYAN SOLDIER SAFETY &amp; LOAD MONITOR</strong><p>Student concept · India-focused · non-diagnostic engineering work</p></div><p class="footer-disclaimer">All 3D-style drawings on this site are illustrative concept diagrams, not photographs of a finished device. One ESP32 controller is reported on hand; no load-sensor hardware has been built or tested. Project claims reflect the evidence status shown here.</p></div></footer>
 </body>
 </html>

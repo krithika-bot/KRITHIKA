@@ -18,6 +18,8 @@ The proposed Phase-1 hardware would use removable force-sensing links at pack su
 
 ## What is built and demonstrated
 
+The student reports owning an ESP32/Arduino board, but it is not connected to a load sensor. The current Python demonstration uses synthetic signal-quality inputs and is separate from the proposed pack hardware.
+
 **Fill after the real build only:**
 
 - Hardware revision / date: `[fill after build]`

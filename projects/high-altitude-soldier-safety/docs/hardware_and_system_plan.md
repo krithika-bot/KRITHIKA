@@ -1,6 +1,12 @@
 # Hardware and System Plan (Bench Stage)
 
-**Status:** design proposal. No physical hardware has been acquired, assembled, or tested. Confirm exact part datasheets, mechanical load rating, voltage levels, operating temperatures, and battery safety before purchase or wiring.
+**Status:** design proposal. The student reports owning one ESP32/Arduino controller only; it is not yet connected to a load sensor. No load sensor, pack rig, or tested hardware prototype is available. Confirm exact part datasheets, mechanical load rating, voltage levels, operating temperatures, and battery safety before purchase or wiring.
+
+### Minimum build to reduce cost and uncertainty
+
+Start with **two shoulder channels on a dummy-pack bench fixture**, not four body-worn channels. Before buying sensors, sketch the force path and have a technically qualified person check the fixture and attachment. A candidate low-cost path is two appropriately rated inline strain-gauge load cells with one HX711 amplifier per channel; a small IMU can be added for controlled movement tests. The exact load-cell range must be chosen from the fixture's maximum expected force and a safety margin, not guessed from the total backpack mass. A temperature sensor, haptic motor, battery and hip channels are later additions. Use USB power and an LED on the bench first. Do not use a person's body or issued military equipment as the initial fixture.
+
+**Starter purchase/borrow list:** (1) two mechanically compatible load cells selected after the force-path review, (2) two compatible HX711 boards, (3) breadboard/jumper leads and a protected mounting fixture, (4) a known-mass reference and a scale whose make/model, resolution and calibration status can be recorded, and (5) optional 6-axis IMU after the static readings work. The existing ESP32 is the controller. Do not buy a battery or haptic motor before the USB bench test. Cheap FSRs are not the first choice for quantitative force measurement because their drift and nonlinearity can obscure the result; they may be used only for a qualitative contact demo.
 
 ## Scope decision
 

@@ -7,10 +7,10 @@
 - Applicant name: `[enter legal/preferred application name]`
 - School/college/university: `[enter exact institution name]`
 - Degree / year: `B.Sc. AI & ML, final year` *(verify exact degree title and current year)*
-- Age subcategory: `Emerging Entrepreneurs (18–22)` *(verify against the live form)*
+- Age subcategory: `Emerging Entrepreneurs (18 years and above)` *(verify against the live form)*
 - Team size / role: `Individual student innovator` *(describe any mentor or AI-assisted contribution truthfully if the form asks)*
 - Contact details: `[enter privately in the official portal; do not add to public repository]`
-- Theme: `Defence Power (Raksha Shakti)` *(select only if this exact theme remains available in the live form)*
+- Theme/stream: `Defence Shakti — Self-Reliance in Defence` *(select the matching official stream if it appears in the live form)*
 
 ## Project title
 
@@ -34,7 +34,7 @@ The intended long-term context is personnel operating in high-altitude/cold envi
 
 ## Current stage and evidence
 
-The project currently has a local Python software demonstrator. Eight software behavior checks passed on Python 3.12.10, and the CLI processed three synthetic example rows offline. These results verify code behavior only. No physical sensor prototype, hardware accuracy test, human/soldier data, clinical validation, cold-field trial, or operational benefit has been demonstrated. The example dataset is synthetic and is not real soldier data.
+The project currently has a local Python software demonstrator and an ESP32/Arduino controller that is not yet integrated with a load sensor. Eight software behavior checks passed on Python 3.12.10, and the CLI processed three synthetic example rows offline. These results verify code behavior only. No physical load-sensor prototype, hardware accuracy test, human/soldier data, clinical validation, cold-field trial, or operational benefit has been demonstrated. The example dataset is synthetic and is not real soldier data.
 
 ## Next steps
 
@@ -52,7 +52,7 @@ Build a dummy-pack test fixture; compare candidate force-sensor types; calibrate
 
 - Official form is English-only; re-check the live portal before submitting.
 - Replace placeholders with true applicant details; do not post personal contact details in GitHub.
-- The current official form permits ideation-stage applications and does not require a working prototype, but the application must still accurately state the development stage.
+- The live student application page says a prototype is not mandatory and accepts idea-stage entries; the student brief says applicants should demonstrate a prototype/MVP/working model/POC. Check the current portal and report the stage accurately. Do not imply the ESP32 alone is a working load-monitor prototype.
 - Remove any unsupported claim of diagnosis, whole-body monitoring, “first,” novelty, soldier endorsement, injury prevention, or lives saved.
 - The applicant must review the truthful-information declaration and submit personally.
 

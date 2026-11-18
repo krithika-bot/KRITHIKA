@@ -4,7 +4,7 @@
 **Target pathway:** National Startup Awards 6.0, Student Innovator / Aspiring Entrepreneur special category.  
 **Application status:** not submitted.
 
-The official Startup India page states the 2026 student route is open to eligible school and undergraduate/college students. Its 18–22 age group is called **Emerging Entrepreneurs**. The official student application form says a registered startup, finished product, working prototype, or commercialized solution is not mandatory; ideation-stage submissions are accepted. It asks for a pitch deck (preferably 5–10 slides) and supporting images/documents where available, and says the application is English-only. The published application window is 27 October to **20 November 2026**.
+The official Startup India page states the 2026 student route is open to eligible school and undergraduate/college students. The student brief lists the 18-years-and-above sub-category as **Emerging Entrepreneurs**. The live student application page says a registered startup, finished product, working prototype, or commercialized solution is not mandatory and accepts idea-stage submissions. The brief separately says applicants should demonstrate a prototype/MVP/working model/POC, so describe the actual stage exactly and recheck the live form. The published application window is 27 October to **20 November 2026**.
 
 Sources:
 

@@ -82,6 +82,23 @@ Start with a dummy pack and known test masses. Use controlled motion of the fixt
 - Any numerical accuracy, sensor mass, cold rating, battery duration, soldier benefit, or award probability not measured or sourced.
 - “Patentable” until a claim-by-claim search and qualified IP review are complete.
 
+## Provisional project and NSA 6.0 scorecard
+
+These are internal readiness scores on a 10-point scale, not jury scores or winning probabilities. The official student rubric weights Innovation 45, Scalability 25, Economic Impact 20, and Inclusivity & Team Diversity 10.
+
+| Dimension | Current score | Why |
+|---|---:|---|
+| India/defence problem relevance | 8/10 | Real defence-support domain and student Defence Shakti fit; user need and field value are not yet validated with intended users. |
+| Confirmed novelty today | 2/10 | Pack load sensing and shoulder/hip balance alerts have direct prior art. The narrowed reliability contribution is only a hypothesis. |
+| R&D question clarity | 6/10 | The revised question is measurable on a bench and avoids medical claims, but sensors and mechanics are not finalized. |
+| Prototype evidence | 2/10 | Existing software demo uses synthetic signal-quality inputs. No load-sensing hardware has been built or measured. |
+| Real-world impact evidence | 1/10 | No load-share error, user feedback, cost, adoption, injury, or operational outcome has been measured. |
+| NSA-weighted self-review | **2.8/10 (28/100)** | Provisional rubric estimates: Innovation 3/10, Scalability 3/10, Economic Impact 2/10, Inclusivity & Team Diversity 3/10. Calculation: 3×0.45 + 3×0.25 + 2×0.20 + 3×0.10. |
+
+NSA 6.0’s student category permits individual or team applications of up to four and does not require DPIIT recognition. Its brief says applicants should demonstrate a prototype/MVP/working model/POC, while the live application page says a working prototype is not mandatory and idea-stage applications are encouraged. This can make an idea-stage entry eligible, but it does not make it competitive on evidence. See the [official student brief](https://www.startupindia.gov.in/content/dam/invest-india/nsa-2026/banner/NSA-6.0-Guidelines-Student.pdf) and [official student application page](https://www.startupindia.gov.in/content/sih/en/nsa-special-categories.html?category=student-led).
+
+The earlier broad “overall competitiveness 4/10” was a rough internal rating. After explicit comparison with direct pack-balance prior art and the student award weights, the more defensible current award-readiness estimate is about **3/10**. No honest award-win percentage can be estimated from the available evidence.
+
 ## Evidence and sources
 
 1. DRDO, *Technology Focus: High and Extreme Altitude* (Jan–Feb 2026), including load-carriage products and glacier-operation use: [official PDF](https://drdo.gov.in/drdo/sites/default/files/publication-document/TF_JanFeb2026.pdf).

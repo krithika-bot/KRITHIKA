@@ -1,0 +1,19 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Run synthetic offline demo",
+      "type": "debugpy",
+      "request": "launch",
+      "module": "hssm.cli",
+      "args": [
+        "--input",
+        "${workspaceFolder}/data/synthetic_demo.csv",
+        "--output",
+        "${workspaceFolder}/results/synthetic_demo_output.jsonl"
+      ],
+      "console": "integratedTerminal",
+      "justMyCode": true
+    }
+  ]
+}

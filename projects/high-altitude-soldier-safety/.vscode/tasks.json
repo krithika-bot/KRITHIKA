@@ -1,0 +1,19 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Run software checks",
+      "type": "shell",
+      "command": "python3 -m unittest discover -s tests -v",
+      "group": "test",
+      "problemMatcher": []
+    },
+    {
+      "label": "Run synthetic offline demo",
+      "type": "shell",
+      "command": "python3 -m hssm.cli --input data/synthetic_demo.csv --output results/synthetic_demo_output.jsonl",
+      "group": "build",
+      "problemMatcher": []
+    }
+  ]
+}

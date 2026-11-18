@@ -14,7 +14,7 @@ This is a research question, not proof that soldiers currently lack monitoring o
 
 ## Proposed solution
 
-A local software demonstrator applies a transparent signal-quality gate, stores selected values offline, and displays generic re-check or wearer check-in prompts. A separate load-cell fixture converts calibrated raw counts to mass. No disease labels, treatment recommendations, or duty-fitness decisions are produced.
+A local software demonstrator applies a transparent signal-quality gate, stores selected values offline, and displays generic re-check or wearer check-in prompts. The separate load-cell module is planned; current code contains only an isolated calibration conversion helper and no physical load cell has been built or tested. No disease labels, treatment recommendations, or duty-fitness decisions are produced.
 
 ## What is built and demonstrated
 

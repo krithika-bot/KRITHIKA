@@ -4,7 +4,7 @@
 
 ## What this project currently does
 
-This local Python demo reads a CSV, checks whether a signal-quality value is usable, records a generic re-check prompt or wearer check-in, and optionally reports a user-configured backpack-load threshold. It runs offline and stores its output locally. The example CSV is **synthetic**.
+This local Python demo reads a CSV, checks whether a supplied signal-quality value is usable, and records a generic re-check prompt or wearer check-in. It runs offline and stores its output locally. A separate load-cell conversion helper has software checks, but it is not connected to the CSV demo or to a physical load cell. The example CSV is **synthetic**.
 
 The software does not diagnose, predict, prevent, or rule out altitude illness, frostbite, hypothermia, organ injury, memory loss, or mental-health conditions. A single wearable point cannot monitor an entire body. The load module measures/labels load; it does not make a backpack lighter or prove better ergonomics.
 
@@ -25,7 +25,7 @@ Open `himalayan-soldier-safety.code-workspace` in VS Code, or open this folder. 
 
 ## Project contents
 
-- `hssm/monitor.py` — transparent signal-quality and check-in logic; pack-load conversion helper.
+- `hssm/monitor.py` — transparent signal-quality and check-in logic; isolated pack-load conversion helper.
 - `hssm/cli.py` — offline CSV-to-JSONL runner.
 - `data/synthetic_demo.csv` — clearly labelled synthetic demonstration values.
 - `tests/` — software behavior checks; these are not health or sensor validation.

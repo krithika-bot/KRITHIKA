@@ -22,7 +22,7 @@ High-altitude and cold environments create documented health and operational ris
 
 ## Proposed solution
 
-The software demonstrator reads timestamped values locally, applies a transparent signal-quality gate, and records a generic re-check or wearer check-in prompt. A separate load-cell fixture converts calibrated raw counts into a mass estimate. The modules are tested separately before any integration. The system does not use disease labels, treatment advice, or duty-fitness decisions.
+The software demonstrator reads timestamped values locally, applies a transparent signal-quality gate, and records a generic re-check or wearer check-in prompt. The proposed separate load module would convert calibrated load-cell counts into a mass estimate. Current code has only an isolated load-conversion helper; no physical load-cell fixture exists yet. The system does not use disease labels, treatment advice, or duty-fitness decisions.
 
 ## What is different / innovation claim
 

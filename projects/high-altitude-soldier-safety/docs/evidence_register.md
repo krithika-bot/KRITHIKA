@@ -16,4 +16,5 @@ Keep each claim tied to its evidence. Add a date, version, source/file, and limi
 | R08 | Soldier/medical expert need and usability. | User feedback | Not collected | Add only if authorized and consented | Do not request classified, tactical, or personal medical information. |
 | R09 | Project novelty. | Patentability / prior art | Not established | Preliminary scan only | Full claims, official records, papers/products, and expert review needed. |
 | R10 | Award eligibility and current deadline. | Official programme rules | Checked 18 Nov 2026 | [`award_cycle_source_check.md`](award_cycle_source_check.md) | Rules and dates can change; no award outcome can be guaranteed. |
+| R11 | NSA application text mapped to project stage and evidence. | Draft application copy | Prepared; applicant review required | [`NSA6_application_copy_draft.md`](NSA6_application_copy_draft.md) | Not submitted; applicant must fill personal details and verify current form. |
 

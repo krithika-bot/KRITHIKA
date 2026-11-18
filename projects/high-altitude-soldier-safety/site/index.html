@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive concept model and evidence status for an offline, non-diagnostic high-altitude personnel safety engineering prototype.">
+  <meta name="theme-color" content="#0a1722">
+  <title>Himalayan Soldier Safety &amp; Load Monitor — Project Lab</title>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="Project home"><span class="brand-mark">H</span><span>PROJECT LAB <small>STUDENT R&amp;D</small></span></a>
+    <nav aria-label="Main navigation">
+      <a href="#system">System</a><a href="#hardware">Hardware</a><a href="#evidence">Evidence</a><a href="#readiness">Readiness</a>
+    </nav>
+    <a class="top-cta" href="#evidence">View evidence <span>↗</span></a>
+  </header>
+
+  <main id="top">
+    <section class="hero section-wrap">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="live-dot"></span> INTERACTIVE CONCEPT MODEL · INDIA</p>
+        <h1>Himalayan Soldier<br><em>Safety &amp; Load Monitor</em></h1>
+        <p class="hero-lede">A proposed offline engineering system for checking sensor-signal quality and exploring a separate backpack-load measurement module.</p>
+        <div class="hero-actions"><a class="button button-primary" href="#system">Explore the system <span>↓</span></a><a class="button button-quiet" href="#readiness">See what is proven</a></div>
+        <div class="hero-status"><span class="status-tag status-concept">CONCEPT VISUALIZATION</span><span>Not a built or field-tested device</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="scene-label"><span>01 / WEARABLE PLACEMENT</span><button id="spinToggle" class="icon-button" type="button" aria-pressed="true" aria-label="Pause 3D rotation">Ⅱ</button></div>
+        <div class="hero-scene" id="heroScene" aria-label="Animated illustrative body placement diagram">
+          <div class="orbit orbit-a"></div><div class="orbit orbit-b"></div>
+          <svg class="body-model" viewBox="0 0 460 500" role="img" aria-labelledby="bodyTitle bodyDesc">
+            <title id="bodyTitle">Illustrative body placement</title><desc id="bodyDesc">A simplified human outline showing a chest hub and wrist optical sensor. Sensor locations are proposed and untested.</desc>
+            <defs><linearGradient id="bodyFill" x1="0" x2="1"><stop stop-color="#d7e8ee" stop-opacity=".9"/><stop offset="1" stop-color="#8da8b4" stop-opacity=".72"/></linearGradient></defs>
+            <circle cx="230" cy="66" r="38" fill="url(#bodyFill)" opacity=".88"/>
+            <path d="M183 116 Q230 96 277 116 L319 142 L356 260 Q363 280 345 286 Q329 291 321 273 L295 196 L310 326 Q314 345 294 350 L283 455 Q281 476 264 476 Q246 476 247 456 L239 362 L224 362 L216 456 Q214 476 197 476 Q180 475 181 455 L169 350 Q149 346 151 326 L165 196 L139 273 Q131 291 114 286 Q96 280 104 260 L141 142 Z" fill="url(#bodyFill)" stroke="#dcebf0" stroke-opacity=".55" stroke-width="2"/>
+            <path d="M178 132 Q230 154 282 132 M168 187 Q230 206 292 187 M169 326 Q230 340 291 326" fill="none" stroke="#477080" stroke-opacity=".5" stroke-width="2"/>
+            <path d="M321 268 L342 274" stroke="#dcebf0" stroke-width="8" stroke-linecap="round"/>
+            <circle cx="236" cy="200" r="24" fill="#47dfd2" fill-opacity=".24" stroke="#54efe0" stroke-width="2"/>
+            <rect x="219" y="182" width="34" height="36" rx="8" fill="#173d50" stroke="#75fff0" stroke-width="2"/>
+            <circle cx="236" cy="200" r="5" fill="#77fff0"/>
+            <circle cx="332" cy="270" r="18" fill="#ffbc6d" fill-opacity=".25" stroke="#ffbc6d" stroke-width="2"/>
+            <rect x="319" y="260" width="27" height="20" rx="6" fill="#55391f" stroke="#ffd199" stroke-width="2"/>
+          </svg>
+          <div class="scene-callout callout-chest"><i></i><span>Chest hub<br><b>ESP32 + IMU</b></span></div>
+          <div class="scene-callout callout-wrist"><i></i><span>Wrist node<br><b>PPG sensor</b></span></div>
+          <div class="scene-chip">ONE SENSOR LOCATION ≠ WHOLE-BODY MONITORING</div>
+        </div>
+        <p class="visual-caption"><span class="caption-dot"></span>Illustrative rendering. Placement and comfort have not been tested.</p>
+      </div>
+    </section>
+
+    <section class="proof-strip" aria-label="Current evidence summary">
+      <div><strong>8 / 8</strong><span>software checks passed</span></div><div><strong>3</strong><span>synthetic rows processed</span></div><div><strong>0</strong><span>physical sensor tests</span></div><div class="proof-note">Current stage: software demonstration only</div>
+    </section>
+
+    <section class="section-wrap section-block" id="system">
+      <div class="section-heading"><p class="eyebrow">02 / HOW THE CONCEPT WORKS</p><h2>Two modules. One careful boundary.</h2><p>The wearable quality-check flow and the pack-load experiment are separate. This avoids claiming one device already solves both jobs.</p></div>
+      <div class="architecture" role="img" aria-label="System architecture from candidate sensors through local signal-quality gate to generic prompt">
+        <div class="architecture-row">
+          <div class="arch-node"><span class="node-number">A</span><b>Candidate sensors</b><small>PPG · motion · optional surface temperature</small></div><span class="arch-arrow">→</span>
+          <div class="arch-node arch-active"><span class="node-number">B</span><b>Local hub</b><small>ESP32 candidate · offline logging</small></div><span class="arch-arrow">→</span>
+          <div class="arch-node"><span class="node-number">C</span><b>Quality gate</b><small>Invalid / low-quality signal flagged</small></div><span class="arch-arrow">→</span>
+          <div class="arch-node arch-output"><span class="node-number">D</span><b>Generic prompt</b><small>Re-check or wearer check-in</small></div>
+        </div>
+        <div class="arch-boundary"><span>NO DISEASE LABEL</span><span>NO TREATMENT ADVICE</span><span>NO “ALL CLEAR”</span><span>NO CLOUD OR GPS</span></div>
+        <div class="load-flow"><div class="load-flow-title">SEPARATE STATIC LOAD EXPERIMENT</div><div class="load-flow-nodes"><b>Pack fixture + load cell</b><span>→</span><b>HX711 calibration</b><span>→</span><b>Mass reading on bench</b></div><p>A load reading does not reduce pack weight or prove ergonomic improvement.</p></div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-block hardware-section" id="hardware">
+      <div class="section-heading"><p class="eyebrow">03 / COMPONENTS &amp; PLACEMENT</p><h2>Exploded view of the proposed build</h2><p>Parts are candidates, not purchased or fitted components. Choose exact board versions after budget and datasheet review.</p></div>
+      <div class="hardware-grid">
+        <div class="exploded-card">
+          <div class="model-controls" role="group" aria-label="3D model view controls"><button class="view-btn active" data-view="exploded" type="button">Exploded</button><button class="view-btn" data-view="assembled" type="button">Assembled</button></div>
+          <div class="explode-stage" id="explodeStage" data-view="exploded" aria-label="Interactive 3D-style exploded electronics model">
+            <div class="part-label label-top">SOFT OUTER COVER <span>proposed, washable sleeve</span></div>
+            <div class="hardware-part cover-part"><span class="cover-window"></span></div>
+            <div class="part-label label-board">ESP32 DEV BOARD <span>candidate local controller</span></div>
+            <div class="hardware-part esp-board"><span class="usb-port"></span><span class="metal-shield">ESP32</span><span class="antenna">2.4G</span><span class="board-pins pins-left"></span><span class="board-pins pins-right"></span></div>
+            <div class="part-label label-motion">IMU MODULE <span>MPU6050 candidate</span></div>
+            <div class="hardware-part imu-board"><span class="chip">6-AXIS</span><span class="pins"></span></div>
+            <div class="part-label label-power">POWER <span>protected battery pack</span></div>
+            <div class="hardware-part battery-pack"><span>Li-ion<br><b>protected</b></span></div>
+            <div class="part-label label-alert">ALERT <span>vibration motor / status LED</span></div>
+            <div class="hardware-part haptic"><span class="vibe-ring"></span><b>H</b></div>
+            <div class="ppg-mini"><div class="ppg-lens"></div><span>MAX30102<br>candidate wrist sensor</span></div>
+            <div class="explode-shadow"></div>
+          </div>
+          <div class="view-caption"><span class="status-tag status-proposed">PROPOSED PARTS</span><span>Board proportions are illustrative, not to scale.</span></div>
+        </div>
+        <div class="component-list">
+          <article class="component-item"><span class="component-index">01</span><div><h3>ESP32 DevKit</h3><p>Candidate local controller. Exact board and power design are not chosen.</p></div><span class="component-state">PLANNED</span></article>
+          <article class="component-item"><span class="component-index">02</span><div><h3>PPG sensor breakout</h3><p>Candidate MAX30102 at wrist contact; motion and cold can make readings unreliable.</p></div><span class="component-state">PLANNED</span></article>
+          <article class="component-item"><span class="component-index">03</span><div><h3>IMU module</h3><p>Candidate MPU6050 near the hub for movement context only, not fatigue diagnosis.</p></div><span class="component-state">PLANNED</span></article>
+          <article class="component-item"><span class="component-index">04</span><div><h3>Temperature probe</h3><p>Optional surface/contact-temperature experiment. It cannot measure core temperature or diagnose frostbite.</p></div><span class="component-state component-optional">OPTIONAL</span></article>
+          <article class="component-item"><span class="component-index">05</span><div><h3>Load cell + HX711</h3><p>Separate static test fixture with known weights; dynamic pack use remains untested.</p></div><span class="component-state component-separate">SEPARATE</span></article>
+          <div class="placement-note"><span class="note-icon">i</span><p><b>Placement rule:</b> PPG needs skin contact at its sensor site. A chest hub cannot read wrist/finger signals by itself. A single point cannot monitor every organ or limb.</p></div>
+        </div>
+      </div>
+      <div class="design-envelope">
+        <div class="design-envelope-copy"><span class="eyebrow">PROVISIONAL DESIGN ENVELOPE</span><h3>Keep the wearable light; measure before claiming</h3><p>Starting engineering target only: complete wearable electronics, battery, enclosure, straps, and cables together should aim for <b>≤150 g</b>. Chest hub enclosure target: <b>≤75 × 55 × 25 mm</b>. These are not measured specifications; exact boards and battery are not selected.</p><div class="envelope-warning">The pack-load fixture is a separate bench experiment. It adds hardware and does not make a soldier’s carried pack lighter.</div></div>
+        <div class="pack-visual-card">
+          <div class="pack-visual-heading"><span>PACK-LOAD MEASUREMENT CONCEPT</span><span class="status-tag status-proposed">BENCH ONLY</span></div>
+          <svg class="pack-render" viewBox="0 0 420 255" role="img" aria-labelledby="packTitle packDesc">
+            <title id="packTitle">Illustrative backpack load measurement fixture</title>
+            <desc id="packDesc">A stylized backpack with padded shoulder straps, a hip belt, and a highlighted load cell under the pack in a stationary bench fixture. It is not a finished backpack design.</desc>
+            <defs><linearGradient id="packFront" x1="0" x2="1"><stop stop-color="#286174"/><stop offset="1" stop-color="#163a4b"/></linearGradient><linearGradient id="packSide" x1="0" x2="1"><stop stop-color="#102a38"/><stop offset="1" stop-color="#0a1c27"/></linearGradient></defs>
+            <ellipse cx="211" cy="225" rx="130" ry="15" fill="#03090e" opacity=".6"/>
+            <path d="M146 59 Q146 40 168 35 L253 35 Q277 39 282 62 L298 188 Q299 200 286 202 L126 202 Q112 199 116 185 Z" fill="url(#packFront)" stroke="#73daca" stroke-opacity=".58" stroke-width="2"/>
+            <path d="M282 62 L318 82 L332 187 Q333 197 320 201 L296 194 Z" fill="url(#packSide)" stroke="#477d8d" stroke-width="2"/>
+            <path d="M160 52 Q137 63 135 94 L142 138 Q145 147 155 140 L169 91 Z M263 51 Q289 61 291 92 L282 140 Q278 148 270 140 L257 91 Z" fill="#1b3947" stroke="#7aa4ad" stroke-opacity=".5" stroke-width="2"/>
+            <path d="M127 161 Q206 181 294 160 L301 177 Q215 204 119 180 Z" fill="#274958" stroke="#83b7c2" stroke-opacity=".55" stroke-width="2"/>
+            <path d="M153 106 Q211 117 271 105 L278 149 Q211 164 147 149 Z" fill="#102d3a" stroke="#4da89f" stroke-width="2"/>
+            <path d="M198 146 L225 146 L229 171 L194 171 Z" fill="#ffb865" stroke="#ffe0a8" stroke-width="2"/><path d="M204 151 L221 151 L222 166 L202 166 Z" fill="#523819"/><text x="212" y="162" text-anchor="middle" fill="#ffe2ad" font-size="7" font-family="sans-serif">LOAD CELL</text>
+            <path d="M210 171 L210 194" stroke="#ffb865" stroke-width="2" stroke-dasharray="4 4"/><rect x="190" y="194" width="40" height="15" rx="4" fill="#152a35" stroke="#ffb865"/><text x="210" y="204" text-anchor="middle" fill="#ffcf8d" font-size="7" font-family="sans-serif">HX711</text>
+            <path d="M228 157 C287 147 308 128 332 126" fill="none" stroke="#ffb865" stroke-width="1.5"/><text x="336" y="122" fill="#ffc477" font-size="9" font-family="sans-serif">Static force</text><text x="336" y="134" fill="#a9bac1" font-size="8" font-family="sans-serif">measurement point</text>
+            <text x="87" y="230" fill="#7f9ba5" font-size="8" font-family="sans-serif">ILLUSTRATIVE FIXTURE — NOT A FIELD PACK</text>
+          </svg>
+          <p>Bench setup can compare known loads and record distribution. Dynamic walking, comfort, load reduction, and cold-weather reliability remain untested.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-block placement-section">
+      <div class="section-heading"><p class="eyebrow">04 / WHERE EACH PART SITS</p><h2>Proposed wear locations</h2><p>Each sensor has a limited view. Final fit, cable routing, glove compatibility, and comfort need bench and user testing.</p></div>
+      <div class="placement-canvas">
+        <div class="body-plate">
+          <svg viewBox="0 0 390 420" role="img" aria-labelledby="placementTitle placementDesc">
+            <title id="placementTitle">Illustrative sensor placements</title><desc id="placementDesc">A neutral human outline with a wrist optical sensor, chest hub, and an optional surface temperature probe. It is a concept diagram, not an actual soldier photograph.</desc>
+            <circle cx="193" cy="55" r="31" class="silhouette-head"/><path class="silhouette" d="M153 102 Q193 85 233 102 L271 128 L311 233 Q316 248 303 253 Q291 258 285 244 L259 183 L271 287 Q274 300 258 307 L248 389 Q247 405 233 405 Q219 405 219 389 L212 318 L176 318 L169 389 Q168 405 154 405 Q140 405 140 389 L130 307 Q114 301 116 287 L127 183 L101 244 Q95 258 83 253 Q70 248 75 233 L115 128 Z"/>
+            <path d="M151 116 Q193 134 235 116 M131 293 Q193 309 259 293" class="body-seam"/>
+            <rect x="178" y="160" width="31" height="33" rx="7" class="marker-hub"/><circle cx="193" cy="176" r="4" class="marker-light"/>
+            <rect x="290" y="235" width="22" height="18" rx="5" class="marker-ppg"/>
+            <circle cx="183" cy="223" r="9" class="marker-temp"/>
+          </svg>
+          <div class="placement-label label-hub-2"><span class="line-lead"></span><span><b>Chest strap / pouch</b><small>hub + IMU</small></span></div>
+          <div class="placement-label label-ppg-2"><span><b>Wrist contact</b><small>PPG sensor only</small></span><span class="line-lead"></span></div>
+          <div class="placement-label label-temp-2"><span class="line-lead"></span><span><b>Optional probe</b><small>surface temperature</small></span></div>
+          <p class="body-caption">Concept placement map · no person or service member photographed</p>
+        </div>
+        <div class="placement-copy"><h3>Designed around sensor limits</h3><p>The idea began as a single-point full-body monitor. That is not technically credible. This concept shows separate sensor locations and explicitly limits what each can say.</p><ul><li>Wrist optical data may fail with movement, poor contact, or cold.</li><li>Chest motion can describe movement, not memory loss or mental health.</li><li>Surface temperature is not core temperature or a diagnosis.</li><li>Alerts should say “re-check / seek qualified support,” never “you are safe.”</li></ul><a class="text-link" href="../docs/research/high_altitude_soldier_evidence_pack_v1.md">Read source-backed limits ↗</a></div>
+      </div>
+    </section>
+
+    <section class="section-wrap section-block evidence-section" id="evidence">
+      <div class="section-heading"><p class="eyebrow">05 / NOVELTY &amp; EVIDENCE</p><h2>What is proven, what is not</h2><p>A strong award story needs a clear new contribution and evidence that it works. Here is the current audit.</p></div>
+      <div class="evidence-grid">
+        <article class="evidence-card evidence-green"><div class="card-top"><span class="evidence-code">A / SOFTWARE</span><span class="evidence-mark">✓</span></div><h3>Verified locally</h3><ul><li>8/8 software behavior checks passed.</li><li>CSV → offline prompt flow works on synthetic examples.</li><li>Low-quality input does not produce an “all clear”.</li></ul><a href="../docs/software_validation_record.md">Open validation record ↗</a></article>
+        <article class="evidence-card evidence-amber"><div class="card-top"><span class="evidence-code">B / PRIOR ART</span><span class="evidence-mark">!</span></div><h3>Novelty unproven</h3><ul><li>DRDO patents cover soldier fatigue, alertness, backpacks, and load carriage.</li><li>International patents cover wearable hypoxia alerts and smart packs.</li><li>AI or integration alone is not enough to claim novelty.</li></ul><a href="../docs/research/high_altitude_patent_prior_art_scan_v1.md">Open prior-art scan ↗</a></article>
+        <article class="evidence-card evidence-red"><div class="card-top"><span class="evidence-code">C / PHYSICAL TESTS</span><span class="evidence-mark">×</span></div><h3>Not tested yet</h3><ul><li>No physical sensor or wearable assembled.</li><li>No cold/movement accuracy or battery results.</li><li>No soldier, clinician, or user study.</li></ul><a href="../docs/research/high_altitude_prototype_validation_plan_v1.md">Open bench test plan ↗</a></article>
+      </div>
+      <div class="novelty-proposal"><div><span class="eyebrow">NARROW DIFFERENTIATOR TO TEST</span><h3>Offline signal-quality gate under simulated motion / poor-contact inputs</h3><p>Hypothesis only. Compare it with a simple threshold baseline and publish false prompts, missed scripted faults, logging gaps, and latency.</p></div><span class="hypothesis-pill">NOT YET A NOVELTY CLAIM</span></div>
+    </section>
+
+    <section class="section-wrap section-block readiness-section" id="readiness">
+      <div class="section-heading"><p class="eyebrow">06 / AWARD READINESS</p><h2>Where the project stands today</h2><p>Internal assessment, not an official judging score or a probability of winning.</p></div>
+      <div class="score-table">
+        <div class="score-row score-head"><span>Dimension</span><span>Current</span><span>Why</span><span>Next evidence</span></div>
+        <div class="score-row"><b>Student / Defence theme fit</b><span class="score-value">8/10</span><span>Student category and defence stream align.</span><span>Check exact live rules and stream.</span></div>
+        <div class="score-row"><b>Novelty</b><span class="score-value score-low">3/10</span><span>Close prior work; differentiator is only a hypothesis.</span><span>Claim-by-claim scan + expert review.</span></div>
+        <div class="score-row"><b>Prototype evidence</b><span class="score-value score-low">3/10</span><span>Software tests only; no sensor hardware.</span><span>Build one bench demonstrator.</span></div>
+        <div class="score-row"><b>Impact / scale proof</b><span class="score-value score-low">2/10</span><span>No user validation, cost, or measured outcome.</span><span>Authorized feedback + costed use path.</span></div>
+        <div class="score-row score-total"><b>Overall competitiveness now</b><span class="score-value">4/10</span><span>Submit as early-stage concept, not proven solution.</span><span>Strengthen one module with measurements.</span></div>
+      </div>
+      <div class="award-note"><span class="note-icon">!</span><p><b>Official rubric matters:</b> NSA student scoring weights Innovation 45, Scalability 25, Economic Impact 20, Inclusivity &amp; Team Diversity 10. Current weak points are novelty proof, field/user validation, and a believable scale path.</p></div>
+      <div class="source-links"><a href="https://www.startupindia.gov.in/content/dam/invest-india/nsa-2026/banner/NSA-6.0-Guidelines-Student.pdf" target="_blank" rel="noreferrer">Official student guidelines ↗</a><a href="https://www.pib.gov.in/PressReleseDetailm.aspx?PRID=2329132&amp;lang=1&amp;reg=3" target="_blank" rel="noreferrer">Official NSA 6.0 announcement ↗</a><a href="../docs/NSA6_application_copy_draft.md">Application copy draft ↗</a></div>
+    </section>
+
+    <section class="section-wrap section-block roadmap-section">
+      <div class="section-heading"><p class="eyebrow">07 / BUILD SEQUENCE</p><h2>Turn the concept into measured proof</h2></div>
+      <div class="roadmap">
+        <article><span>01</span><h3>Freeze one question</h3><p>Start with signal-quality behavior. Keep the pack-scale experiment separate.</p><small>NOW</small></article>
+        <article><span>02</span><h3>Bench hardware</h3><p>Connect one sensor to a local logger; record exact parts, wiring, power, and mass.</p><small>PLANNED</small></article>
+        <article><span>03</span><h3>Measure failure cases</h3><p>Use scripted poor inputs and known weights. Save raw logs and unsuccessful runs.</p><small>PLANNED</small></article>
+        <article><span>04</span><h3>Get relevant feedback</h3><p>Ask an authorized, qualified expert whether the output is useful and safe to interpret.</p><small>PLANNED</small></article>
+      </div>
+      <p class="safety-line">No self-exposure to hypoxia or dangerous cold. No serving-soldier testing without formal permission and oversight.</p>
+    </section>
+  </main>
+
+  <footer class="footer"><div class="section-wrap footer-inner"><div><span class="brand-mark">H</span><strong>HIMALAYAN SOLDIER SAFETY &amp; LOAD MONITOR</strong><p>Student concept · India-focused · non-diagnostic engineering work</p></div><p class="footer-disclaimer">All 3D-style drawings on this site are illustrative concept diagrams, not photographs of a finished device. Project claims reflect the evidence status shown here.</p></div></footer>
+</body>
+</html>

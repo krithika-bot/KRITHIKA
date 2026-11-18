@@ -19,6 +19,10 @@ python -m unittest discover -s tests -v
 
 The first command writes a reproducible **synthetic software demonstration** to `results/`. Do not present that output as soldier data, clinical accuracy, or proof of field effectiveness.
 
+## Interactive project website
+
+Open [`site/index.html`](site/index.html) for the illustrated project walkthrough, interactive exploded/assembled concept, sensor placement, system architecture, evidence status, prior-art limits, and provisional design envelope. The 3D-style artwork is vector concept art, not a photo of built hardware. Run it locally using the steps in [`site/README.md`](site/README.md).
+
 ## Open in Visual Studio Code
 
 Open `himalayan-soldier-safety.code-workspace` in VS Code, or open this folder. Python is standard-library only; no package install is required. VS Code run/debug settings are in `.vscode/`.

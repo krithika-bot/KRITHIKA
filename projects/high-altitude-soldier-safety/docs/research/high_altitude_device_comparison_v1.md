@@ -3,6 +3,8 @@
 **Prepared:** 16 November 2026  
 **Evidence stage:** Public-source desk review. This is a comparison of documented capabilities and development status, not a performance ranking or claim that the proposed student prototype is superior.
 
+**Direction update (18 November 2026):** The country/system comparison below remains background research. Its earlier candidate integration wording is superseded by [`../novelty_research_gap_v2.md`](../novelty_research_gap_v2.md), which narrows Phase 1 to a hardware-first pack load-share monitor and adds shoulder/hip balance prior art. Do not reuse the older candidate wording as the current novelty claim.
+
 ## Executive finding
 
 A soldier wearable for health monitoring is **not a new category**. The US Army has described LifeLens, USARIEM is researching a wearable-based AMS-alert tool, and DRDO publicly lists work on high-altitude acclimatization monitoring and a wearable sweat-analysis fatigue monitor. India also has publicly documented WPMS work, HAPO chambers, and an ergonomic backpack. China has publicly reported high-altitude oxygen supply systems and a pressure-balanced oxygen chamber at a border post.

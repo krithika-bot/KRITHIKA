@@ -14,19 +14,19 @@
 
 ## Project title
 
-**Himalayan Soldier Safety & Load Monitor: an Offline, Non-Diagnostic Engineering Demonstrator**
+**Cold- and Motion-Aware Backpack Load-Share Monitor: a Hardware-First Bench R&D Concept**
 
 ## Problem being explored
 
-High-altitude and cold environments create documented health and operational risks for personnel. India already has acclimatization, medical, clothing, shelter, rescue, and evacuation measures. This student project does not assume that soldiers lack care or that a wearable can diagnose illness. It explores a narrower engineering question: can an offline prototype flag when its own sensor input is too poor to present as a reliable trend, while a separate bench module measures pack load against a user-set limit?
+High-altitude and cold environments create equipment and load-carriage challenges, and India already has ergonomic load-carriage products and soldier-support R&D. This student project does not assume that soldiers lack suitable packs or that a sensor can detect injury. It explores a narrower engineering question: can a removable offline module estimate relative load share across a pack’s shoulder/hip support paths, and withhold a fit-check cue when motion, temperature change, drift, or sensor detachment makes that estimate unreliable?
 
 ## Proposed solution
 
-The software demonstrator reads timestamped values locally, applies a transparent signal-quality gate, and records a generic re-check or wearer check-in prompt. The proposed separate load module would convert calibrated load-cell counts into a mass estimate. Current code has only an isolated load-conversion helper; no physical load-cell fixture exists yet. The system does not use disease labels, treatment advice, or duty-fitness decisions.
+The proposed Phase-1 hardware comprises removable load-path force sensors, a pack-frame IMU, a hardware-temperature sensor, a local controller/logger, and a simple haptic/status cue. It would report relative load share only after a sensor-quality check and otherwise withhold the estimate. The concept is unbuilt. Current Python software checks synthetic signal-quality inputs; it is not connected to this hardware. No medical diagnosis, injury prediction, automatic strap adjustment, or duty-fitness decision is made.
 
 ## What is different / innovation claim
 
-Broad soldier wearables, altitude alerts, fatigue monitoring, cold warnings, and smart backpacks have substantial prior art, including Indian DRDO work. Novelty is therefore not established. The project’s current hypothesis is to test a simple, low-cost offline workflow that makes poor-quality input explicit and keeps load measurement as a separate measurable module. A claim of technical novelty or superiority will be made only if a fuller prior-art comparison and bench results support it.
+Broad soldier wearables, Indian load-carriage systems, and backpack shoulder/hip balance sensors are already documented; novelty is not established. The current hypothesis is a removable low-mass load-share monitor whose quality gate can identify when movement, temperature change, drift, or sensor detachment makes the estimate unreliable. This possible contribution must be compared with a simple threshold baseline and supported by calibrated bench data. It is not yet a claim of patentable novelty or superiority. See [`novelty_research_gap_v2.md`](novelty_research_gap_v2.md).
 
 ## Intended users and potential impact
 
@@ -38,13 +38,13 @@ The project currently has a local Python software demonstrator. Eight software b
 
 ## Next steps
 
-Build and calibrate a bench load-cell fixture; connect one selected sensor to a local logger; test logging and quality flags with controlled simulated inputs; record raw data, calibration, failures, and device mass; obtain qualified feedback through an appropriate authorized route; then reassess feasibility and novelty. No human or serving-soldier testing is planned without required permission, consent, supervision, and review.
+Build a dummy-pack test fixture; compare candidate force-sensor types; calibrate against known reference loads; test balanced/asymmetric load configurations, repeated refitting, controlled movement, sensor faults, and temperatures within component limits; compare the quality gate against a simple baseline; log raw data, failures, calibration, total add-on mass, and battery runtime; then seek qualified feedback and reassess novelty. No serving-soldier testing or cold exposure of people is planned.
 
 ## Evidence attachments to select
 
 - 8-slide pitch deck draft: `evidence/NSA6_pitch_draft_v1.pptx`
 - Software code and test record: `hssm/`, `tests/`, `docs/software_validation_record.md`
-- Problem research and prior-art scan: `docs/research/`
+- Problem research and prior-art scan: `docs/research/`, `docs/novelty_research_gap_v2.md`
 - System/hardware plan and evidence register: `docs/hardware_and_system_plan.md`, `docs/evidence_register.md`
 - Real prototype photos/video: `[not available yet; add only when a prototype exists]`
 

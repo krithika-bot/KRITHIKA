@@ -3,6 +3,8 @@
 **Prepared:** 18 November 2026  
 **Scope:** Publicly searchable patent records and official Indian defence disclosures. This is a desk-research scan, not a patentability opinion, freedom-to-operate (FTO) search, or legal advice.
 
+**Update:** This v1 scan focused on broad physiological wearables and cold-warning ideas. The current hardware-first load-share novelty hypothesis and additional explicit shoulder/hip load-balance prior art are documented in [`../novelty_research_gap_v2.md`](../novelty_research_gap_v2.md). Use v2 for current project direction; v1 remains a broader background scan.
+
 ## Executive finding
 
 The broad idea—wearable soldier vital-sign monitoring combined with AI/alerts, cold-injury warning, or a sensorized backpack—has substantial prior art. Indian and overseas disclosures overlap with several parts of the concept, and DRDO itself lists granted patents in fatigue monitoring, alertness assessment, backpacks, and load carriage.

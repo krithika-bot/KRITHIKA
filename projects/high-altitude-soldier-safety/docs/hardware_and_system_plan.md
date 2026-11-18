@@ -1,48 +1,80 @@
 # Hardware and System Plan (Bench Stage)
 
-**Status:** design proposal. Hardware has not yet been acquired or tested. Confirm module voltage levels, interface, measurement range, and cold rating from the exact manufacturer datasheet before wiring.
+**Status:** design proposal. No physical hardware has been acquired, assembled, or tested. Confirm exact part datasheets, mechanical load rating, voltage levels, operating temperatures, and battery safety before purchase or wiring.
 
 ## Scope decision
 
-Build two modules and evaluate separately:
+### Phase 1: hardware-first pack load-share demonstrator
 
-1. **Offline signal logger:** a sensor board sends data to an ESP32; a local laptop/demo interface displays signal quality and a generic re-check prompt. It does not diagnose disease.
-2. **Pack scale fixture:** a load cell and HX711 board measure force at a fixed attachment/bench point. Do not assume one cell measures a backpack accurately during movement; mechanical design and calibration determine that.
+Build a removable add-on that measures **relative force/load share** at pack support paths and tests whether those readings remain trustworthy under repeatable movement and temperature changes. Start on a dummy pack/test frame. Do not begin with health diagnosis, active load adjustment, or field use.
 
-Do not build a purported “whole-body monitor.” A wearable can only measure at its sensor locations, and sensor values do not directly establish organ or tissue injury.
+Candidate measurement points are the left/right shoulder and left/right hip-belt paths. If cost or mechanics make four channels too difficult, prove two shoulder channels on a fixture first and document that narrower scope. A pack-frame IMU and a temperature sensor on the electronics/sensing pod provide motion and hardware-condition context. The temperature sensor is not placed or interpreted as a body-temperature sensor.
+
+The local controller should have three states:
+
+1. **Valid and within the test rule:** log the relative load-share estimate and optionally cue “re-check pack fit/load.”
+2. **Valid and outside the test rule:** cue “re-check pack fit/load.” This is not an injury-risk prediction.
+3. **Invalid/uncertain:** cue “reading uncertain” or withhold the estimate when the sensor is detached, saturated, drifting, or motion-corrupted.
+
+The exact wording, thresholds, and cue behavior must be validated with a technical adviser; do not use a universal or medical threshold. No automatic strap tightening or pack movement is proposed.
+
+### Separate streams
+
+- The existing Python software demonstrator still processes synthetic signal-quality fields. It is not connected to a real sensor and is not the pack-balance algorithm.
+- PPG/body-signal monitoring remains a separate future research question. It is not required to prove Phase 1 and must not be described as a whole-body monitor or diagnostic tool.
 
 ## Candidate components (not yet selected or verified)
 
-| Component | Purpose in educational prototype | Limits / checks before purchase |
+| Component | Phase-1 role | Limits / checks before purchase |
 |---|---|---|
-| ESP32 development board | Local microcontroller and BLE/Wi-Fi capability; prototype may keep radios off for offline tests. | Confirm board logic voltage, power draw, battery charging/safety, and temperature range. |
-| MAX30102 breakout | PPG waveform experiment for signal-quality processing, if the exact breakout is compatible. | Consumer module; cold, movement, skin contact, fit, and circulation affect signal. Do not use it to diagnose or clear a person. |
-| MPU6050 IMU breakout | Motion/artifact context for software experiments. | Needs calibration; acceleration is not a direct fatigue or injury label. |
-| DS18B20 probe or suitable contact-temperature sensor | Surface/contact temperature logging on a non-human fixture first. | Surface temperature is not core temperature and cannot diagnose frostbite. Check probe encapsulation, contact, and response time. |
-| HX711 amplifier + load cell (capacity selected after mechanical design) | Separate static pack-load measurement rig. | Needs known-mass calibration, stable mounting, overload protection, and repeated placement tests. |
-| Known calibration masses / reference scale | Load-cell calibration and cross-check. | Record reference instrument/model and uncertainty. |
-| USB power bank or protected battery module | Bench power. | Start on USB bench power; battery/cold operation only after checking cell and protection ratings. |
-| Enclosure, straps, wiring, connectors | Safe mechanical assembly. | Avoid sharp edges, snag hazards, exposed conductors, and direct use in field conditions. |
+| ESP32 or comparable local controller | Read candidate channels, run the quality gate, store data locally, and drive a simple cue. | Choose exact board only after checking logic level, ADC/interface needs, sleep current, operating temperature, and total mass. Keep radio features off for the core offline demonstration. |
+| Two or four load-path force sensors | Candidate inline load/force links at the shoulder straps and/or hip belt. | Compare inline load cells with flexible pressure elements. Check stiffness, hysteresis, zero drift, dynamic range, overload protection, mounting safety, and whether the sensor itself changes fit. Do not call uncalibrated values “pressure.” |
+| Load-cell amplifier(s), if strain-gauge links are selected | Convert the chosen force-sensor signal for local acquisition. | Channel count and amplifier depend on the final sensors. Verify calibration, noise, temperature dependence, and mechanical fixture before integrating. |
+| Pack-frame IMU | Tag static vs moving intervals and test motion-related estimate failure. | Calibrate orientation and sampling; motion is context only, not fatigue or injury. |
+| Pod/sensor temperature sensor | Record the hardware’s test temperature to study drift and validity. | Select location and range from the datasheet; this is not a human-body or core-temperature measurement. |
+| Haptic/status cue | Give short “re-check” or “uncertain” feedback without relying on a phone. | Check current draw, glove usability on a fixture, audibility/tactility, and avoid alert fatigue. No tactical or medical message. |
+| Local logger / flash storage | Preserve raw samples, timestamps, calibration and software version. | Retain raw data; protect privacy; no GPS, cloud, soldier identity, or operational details are needed. |
+| Reference weights / calibrated reference load cells | Provide bench ground truth for each sensor path and verify the total. | Record instrument identity, calibration date, range, resolution, and uncertainty. Do not treat synthetic data as reference data. |
+| Enclosure, removable mounts, strain relief, wiring | Protect the pod and keep sensor links removable from a civilian test pack. | Avoid sharp parts, snag hazards, stiff contact edges, water ingress and changes that could alter a real issued pack. |
+| Protected battery, selected after power budget | Portable supply after USB-powered bench operation works. | Weigh the complete system. Verify cell protection and manufacturer temperature limits; do not cold-test a battery outside its permitted conditions. |
 
-No cost is stated because vendor prices and module quality vary. Choose only after the student confirms a budget ceiling and exact available components.
+**Provisional mass goal:** aim for no more than 150 g for all add-on sensors, electronics, battery, housing, mounts and cables. This is a design constraint to test, not a measured specification. Revisit it if the chosen force links cannot meet it safely.
 
-## Signal path
+## Candidate signal path
 
 ```mermaid
 flowchart LR
-  A[Sensor or test-signal fixture] --> B[ESP32 / local acquisition]
-  B --> C[Timestamped local CSV]
-  C --> D[Signal-quality gate]
-  D -->|poor / missing| E[Re-check prompt]
-  D -->|passes configured software check| F[Trend recorded; no all-clear]
-  G[Wearer check-in] --> H[Generic human-support prompt]
-  I[Load cell fixture] --> J[HX711 + calibration] --> K[Separate load display/log]
+  A[Shoulder/hip force links] --> B[Local acquisition]
+  C[Pack-frame IMU] --> B
+  D[Pod temperature] --> B
+  B --> E[Sensor health + motion gate]
+  E -->|valid| F[Relative load-share estimate]
+  F --> G[Generic re-check fit cue]
+  E -->|invalid / uncertain| H[Withhold estimate + uncertain cue]
+  B --> I[Raw local log + calibration version]
+  J[Reference weights / load cells] --> K[Bench comparison]
 ```
 
-## Data boundaries
+The physiological wearable is not in this signal path. This separation prevents the system from mixing an unvalidated health signal with an unvalidated pack-balance signal.
 
-- Keep data on the device/laptop; no account, cloud, GPS, location, unit identity, or tactical details are needed.
-- Synthetic data may be used for software checks and must be labelled synthetic in the file and presentation.
-- Do not collect health or operational data from serving personnel without formal authorization, consent, supervision, and required review.
-- Separate raw sensor data from processed outputs. Preserve original logs and software version for any bench evidence.
+## Bench validation sequence
 
+1. **Mechanical check:** verify the fixture and mounts withstand the selected safe test loads; no person carries the prototype during this step.
+2. **Calibration:** determine each channel’s zero, span, hysteresis, repeatability, and overload behavior against a documented reference.
+3. **Known distributions:** use the same total test mass in balanced and deliberate left/right and shoulder/hip arrangements. Repeat each configuration after unloading and refitting.
+4. **Motion and fault injection:** compare stationary and repeatable fixture movement; intentionally disconnect, loosen, saturate, or offset one sensor to check the invalid-data gate.
+5. **Temperature:** use a suitable environmental chamber and remain within the operating limits of every component. Log temperature at the sensor, not just room setpoint. Do not expose people to dangerous cold or batteries to unapproved temperatures.
+6. **Baseline comparison:** compare total-weight-only and simple-threshold baselines with the proposed multi-point estimate plus quality gate. Freeze the metrics and thresholds before reviewing outcomes.
+7. **Mass and power:** weigh the complete removable kit and measure runtime on the bench. Report failures and missing data.
+
+Report relative load-share error against reference, repeated-fit variation, drift/hysteresis, valid-data coverage, sensor-fault detection, false prompts, missed scripted imbalance cases, alert delay, total mass, and runtime. Select numerical acceptance limits only after the sensor and reference equipment are known and a technical adviser reviews the protocol; these limits are not medical standards.
+
+## Data and use boundaries
+
+- Start with a civilian backpack, a dummy load, and a static/mechanical fixture. No serving-soldier test or modification of issued kit without formal authorization.
+- No user identity, body-health profile, GPS, route, unit, or operational data are needed for the core project.
+- Keep raw and processed logs separate; record date, configuration, calibration, code version, and failures.
+- Do not claim reduced pack weight, improved endurance, injury prevention, safety clearance, or soldier benefit until directly measured with an appropriate study.
+- Do not add machine learning until a defined, non-medical task and enough independently labeled data exist. A transparent baseline is the right first comparison.
+
+For prior-art comparison and the proposed novelty hypothesis, see [`novelty_research_gap_v2.md`](novelty_research_gap_v2.md).

@@ -40,6 +40,10 @@ Open `himalayan-soldier-safety.code-workspace` in VS Code, or open this folder. 
 
 See [`docs/hardware_and_system_plan.md`](docs/hardware_and_system_plan.md). Begin with a sensor simulator or bench fixture. Any later human measurements need appropriate consent, supervision, and institutional guidance. No testing on serving personnel is included in this plan.
 
+## Recommended novelty direction
+
+The strongest current student-scale direction is a hardware-first, removable backpack load-share monitor with a sensor-quality gate. This is a **hypothesis to validate**, not an established novelty claim: shoulder/hip balance sensors and backpack alerts already appear in prior art. See [`docs/novelty_research_gap_v2.md`](docs/novelty_research_gap_v2.md) for the prior-art comparison, hardware scope, claims to avoid, and bench validation plan.
+
 ## Evidence rule
 
 Every project statement must be tagged as one of: **documented source**, **software behavior**, **bench result**, **user feedback**, or **untested hypothesis**. Keep protocol versions, raw logs, dates, and failures. Never invent results or label synthetic data as real.

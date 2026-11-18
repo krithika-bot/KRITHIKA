@@ -1,0 +1,4 @@
+timestamp,signal_quality,heart_rate_bpm,surface_temp_c,motion_rms_g,check_in
+2026-11-18T09:00:00+05:30,0.92,72,31.4,0.03,none
+2026-11-18T09:00:05+05:30,0.41,74,31.1,0.58,none
+2026-11-18T09:00:10+05:30,0.88,76,30.9,0.10,concern
